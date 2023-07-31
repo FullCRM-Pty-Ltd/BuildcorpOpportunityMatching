@@ -14,9 +14,94 @@ public with sharing class OpportunityMatchListControllerTest {
 
         for (String businessUnit : businessUnitList){
 
-            //tempFieldSetMap.put(businessUnit,GetFieldsFromFieldSet(objectName, fieldSetName));
+            String fieldSetName = businessUnit.replace(' ','_')+'_Questionnaire';
+
+            List<Schema.FieldSetMember> fieldSetMemberList = GetFieldsFromFieldSet('Opportunity', fieldSetName);
+
+            if(!fieldSetMemberList.isEmpty()) tempFieldSetMap.put(businessUnit, fieldSetMemberList);
             
         }
+
+        System.debug(tempFieldSetMap);
+
+        Map<String,List<String>> fieldPickListValueMap = new Map<String,List<String>>();
+
+        for(String businessUnit : tempFieldSetMap.keySet()){
+            for (Schema.fieldSetMember field : tempFieldSetMap.get(businessUnit)){
+                fieldPickListValueMap.put(field.getFieldPath(), GetPickListValuesFromField('Opportunity',field.getFieldPath()));
+            }
+        }
+
+        System.debug(fieldPickListValueMap);
+
+
+        List<Opportunity> oppsToCreate = new List<Opportunity>();
+
+        for(String businessUnit : businessUnitList){
+
+            System.debug('Business Unit: '+businessUnit);
+
+            if(tempFieldSetMap.containsKey(businessUnit)){
+
+                Opportunity oppToMatch = new Opportunity(Name = 'Match - '+businessUnit, CloseDate = System.today(), StageName = 'Speculative', Services__c = 'Construction', Buildcorp_Business_Unit__c = businessUnit);
+
+                for(Schema.FieldSetMember field : tempFieldSetMap.get(businessUnit)){
+
+                    //System.debug('Field: '+field.getFieldPath());
+
+                    List<String> picklistValueList = fieldPickListValueMap.get(field.getFieldPath());
+
+                    //System.debug('Picklist Values: '+picklistValueList);
+
+                    Integer randomNumber = generateRandomFromRange(0,picklistValueList.size()-1);
+
+                    String randomPicklistValue = fieldPickListValueMap.get(field.getFieldPath())[randomNumber];
+
+                    //System.debug('Value Chosen: '+randomPicklistValue);
+
+                    oppToMatch.put(field.getFieldPath(),randomPicklistValue);
+                }
+
+                oppsToCreate.add(oppToMatch);
+
+                for (Integer i = 0; i < 30 ; i++){
+                    Opportunity opp = new Opportunity(Name = businessUnit+' Test Opp '+i, CloseDate = System.today(), StageName = 'Speculative', Services__c = 'Construction',Buildcorp_Business_Unit__c = businessUnit);
+					
+
+                    for(Schema.FieldSetMember field : tempFieldSetMap.get(businessUnit)){
+
+                        //System.debug('Field: '+field.getFieldPath());
+    
+                        List<String> picklistValueList = fieldPickListValueMap.get(field.getFieldPath());
+    
+                        //System.debug('Picklist Values: '+picklistValueList);
+                        //
+                        
+                        if(Math.mod(i, 2) == 0){
+                        	opp.put(field.getFieldPath(), oppToMatch.get(field.getFieldPath()));
+                    	}
+    					
+                        else{
+                            Integer randomNumber = generateRandomFromRange(0,picklistValueList.size()-1);
+        
+                            String randomPicklistValue = fieldPickListValueMap.get(field.getFieldPath())[randomNumber];
+        
+                            //System.debug('Value Chosen: '+randomPicklistValue);
+                            
+                            opp.put(field.getFieldPath(),randomPicklistValue);
+                        }
+                    }
+
+                    oppsToCreate.add(opp);
+
+                }
+            }
+
+            
+        }
+        System.debug(oppsToCreate);
+		insert oppsToCreate;
+        
         
         //fieldSetMap = tempFieldSetMap;
 
@@ -25,8 +110,14 @@ public with sharing class OpportunityMatchListControllerTest {
     @isTest
     static void RetrieveMatchingOpportunitiesTest() {
 
-        Opportunity oppToMatch = new Opportunity(Name = 'Match This One', CloseDate = System.today(), StageName = 'Speculative', Services__c = 'Construction');
-        insert oppToMatch;
+        List<Opportunity> mainOpps = [SELECT Id, Buildcorp_Business_Unit__c FROM Opportunity WHERE Name LIKE 'Match%'];
+        
+        for(Opportunity mainOpp : mainOpps){
+            List<Opportunity> matchedOpportunities = OpportunityMatchListController.RetrieveMatchingOpportunities(mainOpp.Id);
+            
+            System.assert(matchedOpportunities.size() >= 15);
+            
+        }
         
         
 
@@ -66,5 +157,33 @@ public with sharing class OpportunityMatchListControllerTest {
 
         return fieldSetMemberList; 
 
+    }
+
+    //method to return random value between 2 numbers
+    public static Integer generateRandomFromRange(integer startNum, integer endNum){
+        Integer returnValue;
+        //Logic- first we will generate random boolean value which will decide if we want to
+        //add the random number from startNum or will subtract random number from endNum
+        Integer randomNumber = Integer.valueof((math.random() * 10));
+        boolean addSubFlag= math.mod(randomNumber,2) == 0 ? true : false;
+        
+        integer diffInRange = endNum-startNum;
+        //Now find random number staring from 0 to diffInRange
+        Integer randomNum = Math.mod(Math.round(Math.random()*diffInRange+1),diffInRange);
+        
+        //If addSubFlag is true, we will add random number generated between 0 and diffInRange from start number
+        //else we will subtract random number from end number
+                if(addSubFlag){
+            if(diffInRange > 1)
+                returnValue =startNum + randomNum;
+            else
+                returnValue =startNum;
+        }else{
+            if(diffInRange > 1)
+                returnValue = endNum - randomNum;
+            else
+                returnValue =endNum;
+        }
+        return returnValue;
     }
 }
