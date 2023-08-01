@@ -18,7 +18,7 @@
  * 
  */
 
-public with sharing class OpportunityMatchListController {
+ public with sharing class OpportunityMatchListController {
 
     @AuraEnabled (cacheable=true)
     public static List<Opportunity> RetrieveMatchingOpportunities(Id opportunityToMatchId){
@@ -54,14 +54,16 @@ public with sharing class OpportunityMatchListController {
             for(Schema.FieldSetMember matchingField : matchingColumnFieldList){
                 String fieldPath = matchingField.getFieldPath();
                 System.debug('Field Name: '+matchingField.getFieldPath());
-
+                if(matchingField.getType().name().toLowerCase() == 'reference'){
+                    fieldPath = matchingField.getFieldPath().replace('Id','.Name');
+                    fieldPath = matchingField.getFieldPath().replace('__c','__r.Name');
+                }
+                else fieldPath = matchingField.getFieldPath();
 
                 if(matchingField.getType().name().toLowerCase() == 'reference'){
                     System.debug('Reference Field: '+fieldPath);
                     if(fieldPath.endsWith('Id')) fieldPath = fieldPath.replace('Id','.Name');
                     else if(fieldPath.endsWith('__c')) fieldPath = fieldPath.replace('__c','__r.Name');
-                    soqlQuery+=', '+fieldPath;
-                    fieldPath = matchingField.getFieldPath();
                 }
 
                 soqlQuery+=', '+fieldPath;
@@ -83,7 +85,17 @@ public with sharing class OpportunityMatchListController {
             
             mainOpp = (Opportunity)Database.query(soqlQuery)[0];
             
-            Opportunity_Matching_Threshold__mdt matchingThreshold = [SELECT Id, Matching_Threshold__c FROM Opportunity_Matching_Threshold__mdt WHERE MasterLabel = :businessUnit][0];
+            List<Opportunity_Matching_Threshold__mdt> matchingThresholdList = [SELECT Id, Matching_Threshold__c FROM Opportunity_Matching_Threshold__mdt WHERE Business_Unit__c = :businessUnit];
+            Opportunity_Matching_Threshold__mdt matchingThreshold;
+            if(!matchingThresholdList.isEmpty()){
+                matchingThreshold = matchingThresholdList[0];
+            }
+            else{
+                AuraHandledException e = new AuraHandledException('Error: No Matching Threshold Found for Business Unit \''+businessUnit+'\'');
+                e.setMessage('Error: No Matching Threshold Found for Business Unit \''+businessUnit+'\'');
+                throw e;
+            }
+            
             Double matchingThresholdPct = matchingThreshold.Matching_Threshold__c/100;
             
             System.debug('Matching Threshold: '+matchingThresholdPct);
@@ -122,16 +134,18 @@ public with sharing class OpportunityMatchListController {
                 
             }
             
-            
-
             if(!matchedOpportunityList.isEmpty()) return matchedOpportunityList;
             else return null;
         } 
         catch (Exception e) {
-            throw new AuraHandledException(e.getMessage());
+            AuraHandledException ex = new AuraHandledException(e.getMessage()+'\n'+ e.getStackTraceString());
+            ex.setMessage(e.getMessage()+'\n'+ e.getStackTraceString());
+            throw ex;
         }
     }
 
+
+    //For Match Pct: return Map<Opportunity,Double> where the value is the percent, input this map into the below method 
     @AuraEnabled(cacheable=true)
     public static List<Map<String,Object>> GetColumnsFromFieldSet(Id opportunityId){
         Opportunity opp = [SELECT Id, Buildcorp_Business_Unit__c FROM Opportunity WHERE Id = :opportunityId][0];
@@ -155,34 +169,27 @@ public with sharing class OpportunityMatchListController {
 
             System.debug('Field Type: '+field.getType().name());
 
-            if(field.getType().name().toLowerCase() == 'reference'){
-                System.debug('Reference Field: '+fieldPath);
-                if(fieldPath.endsWith('Id')) fieldPath = fieldPath.replace('Id','.Name');
-                else if(fieldPath.endsWith('__c')) fieldPath = fieldPath.replace('__c','__r.Name');
-            }
-
-            System.debug('Field Path: '+fieldPath);
             String fieldType; 
             switch on field.getType().name(){
-                when 'Boolean'{
+                when 'BOOLEAN'{
                     fieldType = 'boolean';
                 }
-                when 'Currency'{
+                when 'CURRENCY'{
                     fieldType = 'currency';
                 }
-                when 'Date'{
+                when 'DATE'{
                     fieldType = 'date-local';
                 }
-                when 'DateTime'{
+                when 'DATETIME'{
                     fieldType = 'date';
                 }
-                when 'Double', 'Integer', 'Long'{
+                when 'DOUBLE', 'INTEGER', 'LONG'{
                     fieldType = 'number';
                 }
-                when 'Email'{
+                when 'EMAIL'{
                     fieldType = 'email';
                 }
-                when 'Phone'{
+                when 'PHONE'{
                     fieldType = 'phone';
                 }
                 when else{
@@ -190,10 +197,35 @@ public with sharing class OpportunityMatchListController {
                 }
             }
 
-            columnMap.add(new Map<String,Object>{'label'=> field.getLabel(), 'fieldName' => fieldPath, 'type' => fieldType, 'sortable' => true});
+            if(field.getType().name().toLowerCase() == 'reference'){
+                System.debug('Reference Field: '+fieldPath);
+                if(fieldPath.endsWith('Id')) fieldPath = fieldPath.replace('Id','.Name');
+                else if(fieldPath.endsWith('__c')) fieldPath = fieldPath.replace('__c','__r.Name');
+                Map<String,Object> fieldMap = new Map<String,Object>{
+                    'label'=> field.getLabel(), 
+                    'fieldName' => '/lightning/r/+row.'+field.getFieldPath()+'+/view', 
+                    'type' => 'url', 
+                    'typeAttributes' => new Map<String, Object>{
+                        'label' => new Map<String, String>{
+                            'fieldName' => 'row.'+fieldPath
+                        },
+                        'target' => '_self'
+                    },
+                    'sortable' => true
+                };
+                System.debug(fieldMap);
+                columnMap.add(fieldMap);
+            }
+            else{
+                System.debug('Field Path: '+fieldPath);
+                
+                Map<String,Object> fieldMap = new Map<String,Object>{'label'=> field.getLabel(), 'fieldName' => fieldPath, 'type' => fieldType, 'sortable' => true};
+                System.debug('Field Map: '+fieldMap);
+                columnMap.add(fieldMap);
+            }
         }
 
-        Map<String, String> cellAttributes = new Map<String, String>{'alignment'=>'left'};
+        Map<String, Object> cellAttributes = new Map<String, Object>{'alignment'=>'left', 'class' => new Map<String,String>{'fieldName' => 'textColour'}};
         Map<String,Object> matchPercentMap = new Map<String,Object>{'label' => 'Match %', 'fieldName' => 'Match_Percent__c', 'type' => 'percent', 'sortable' => true, 'cellAttributes' => cellAttributes};
         columnMap.add(matchPercentMap);
         System.debug(columnMap);
