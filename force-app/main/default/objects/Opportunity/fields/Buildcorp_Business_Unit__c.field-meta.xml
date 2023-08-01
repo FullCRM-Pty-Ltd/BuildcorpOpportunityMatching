@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Buildcorp_Business_Unit__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Select the business unit working on this opportunity
+
+WARNING: If you do not enter this field this opportunity will not appear in your reports</inlineHelpText>
+    <label>Buildcorp Business Unit</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Asset Solutions</fullName>
+                <default>false</default>
+                <label>Asset Solutions</label>
+            </value>
+            <value>
+                <fullName>Contracting</fullName>
+                <default>false</default>
+                <label>Contracting</label>
+            </value>
+            <value>
+                <fullName>Interiors NSW</fullName>
+                <default>false</default>
+                <label>Interiors NSW</label>
+            </value>
+            <value>
+                <fullName>Interiors QLD</fullName>
+                <default>false</default>
+                <label>Queensland</label>
+            </value>
+            <value>
+                <fullName>Interiors VIC</fullName>
+                <default>false</default>
+                <label>Victoria</label>
+            </value>
+            <value>
+                <fullName>Euroline</fullName>
+                <default>false</default>
+                <label>Euroline</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

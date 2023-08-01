@@ -1,0 +1,18 @@
+<template>
+    
+
+        <lightning-datatable
+            key-field="id"
+            data={data}
+            columns={columns}
+            is-loading="true"
+            hide-checkbox-column="true"
+            onload={doSortingOnLoad}
+            default-sort-direction={defaultSortDirection}
+            sorted-by={sortedBy}
+            sorted-direction={sortDirection}
+            onsort={doSorting}
+        ></lightning-datatable>
+
+    
+</template>

@@ -13,5 +13,4 @@
 **/aura/**/*.tokens
 **/aura/**/*.xml
 **/aura/**/*.app
-/ExecAnonymousOppData.cls
 .sfdx
