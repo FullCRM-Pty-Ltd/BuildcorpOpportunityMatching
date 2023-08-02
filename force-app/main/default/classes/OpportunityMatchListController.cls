@@ -20,48 +20,52 @@
 
  public with sharing class OpportunityMatchListController {
 
-    @AuraEnabled (cacheable=true)
+    @AuraEnabled (cacheable=false)
     public static List<Opportunity> RetrieveMatchingOpportunities(Id opportunityToMatchId){
+
+        boolean customException = false;
+
         try {
 
             Opportunity mainOpp = [SELECT Id, Buildcorp_Business_Unit__c FROM Opportunity WHERE Id = :opportunityToMatchId];
 
-            String businessUnit = mainOpp.Buildcorp_Business_Unit__c;
+            String businessUnit;
+
+            if(mainOpp.Buildcorp_Business_Unit__c != null) businessUnit = mainOpp.Buildcorp_Business_Unit__c;
+            else{
+                customException = true;
+                System.debug('Please Enter a Business Unit for this Opportunity');
+                AuraHandledException e = new AuraHandledException('Please Enter a Business Unit for this Opportunity');
+                e.setMessage('Please Enter a Business Unit for this Opportunity');
+                throw e;
+            }
             
             String fieldSetName = businessUnit.replace(' ','_')+'_Questionnaire';
             
-            System.debug('Getting fields from '+fieldSetName+' fieldset.');
+            System.debug('Getting matching fields from '+fieldSetName+' fieldset.');
             
             List<Schema.FieldSetMember> matchingFieldList = GetFieldsFromFieldSet('Opportunity', fieldSetName);
             
             System.debug('Fields retrieved: '+matchingFieldList);
             
-            String soqlQuery = 'SELECT Id, Name, Record_URL__c';
+            String soqlQuery = 'SELECT Id, Name';
             
             for(Schema.FieldSetMember matchingField : matchingFieldList){
-                System.debug('Field Name: '+matchingField.getFieldPath());
                 soqlQuery+=', '+matchingField.getFieldPath();
             }
 
             String columnFieldSetName = businessUnit.replace(' ','_')+'_Columns';
 
-            System.debug('Getting fields from '+columnFieldSetName+' fieldset.');
+            System.debug('Getting column display fields from '+columnFieldSetName+' fieldset.');
             
-            List<Schema.FieldSetMember> matchingColumnFieldList = GetFieldsFromFieldSet('Opportunity', columnFieldSetName);
+            List<Schema.FieldSetMember> columnFieldList = GetFieldsFromFieldSet('Opportunity', columnFieldSetName);
             
-            System.debug('Fields retrieved: '+matchingColumnFieldList);
+            System.debug('Fields retrieved: '+columnFieldList);
             
-            for(Schema.FieldSetMember matchingField : matchingColumnFieldList){
-                String fieldPath = matchingField.getFieldPath();
-                System.debug('Field Name: '+matchingField.getFieldPath());
-                if(matchingField.getType().name().toLowerCase() == 'reference'){
-                    fieldPath = matchingField.getFieldPath().replace('Id','.Name');
-                    fieldPath = matchingField.getFieldPath().replace('__c','__r.Name');
-                }
-                else fieldPath = matchingField.getFieldPath();
+            for(Schema.FieldSetMember columnField : columnFieldList){
+                String fieldPath = columnField.getFieldPath();
 
-                if(matchingField.getType().name().toLowerCase() == 'reference'){
-                    System.debug('Reference Field: '+fieldPath);
+                if(columnField.getType().name().toLowerCase() == 'reference'){
                     if(fieldPath.endsWith('Id')) fieldPath = fieldPath.replace('Id','.Name');
                     else if(fieldPath.endsWith('__c')) fieldPath = fieldPath.replace('__c','__r.Name');
                 }
@@ -69,15 +73,33 @@
                 soqlQuery+=', '+fieldPath;
             }
 
-            soqlQuery+=' FROM Opportunity WHERE Id !=\''+opportunityToMatchId+'\' AND Buildcorp_Business_Unit__c = \''+businessUnit+'\'';
-            System.debug('SOQL Query formed: '+soqlQuery);
+            soqlQuery+=' FROM Opportunity WHERE Id !=\''+opportunityToMatchId+'\' AND Buildcorp_Business_Unit__c = \''+businessUnit+'\' AND (';
+
+            for(Schema.FieldSetMember matchingField : matchingFieldList){
+                String fieldPath = matchingField.getFieldPath();
+                fieldPath = matchingField.getFieldPath();
+
+                soqlQuery+=fieldPath+' != null OR ';
+            }
+
+            soqlQuery = soqlQuery.left(soqlQuery.length()-4);
+            soqlQuery += ')';
+
+            System.debug('SOQL Query updated: '+soqlQuery);
             
             List<Opportunity> oppsToCompare = Database.query(soqlQuery);
+
+            if(oppsToCompare.isEmpty()){
+                customException = true;
+                System.debug('Error caught: No Opportunities Found To Compare Against.');
+                AuraHandledException e = new AuraHandledException('No Opportunities Found To Compare Against.');
+                e.setMessage('No Opportunities Found To Compare Against.');
+                throw e;
+            }
             
             soqlQuery = 'SELECT Id, Name';
             
             for(Schema.FieldSetMember matchingField : matchingFieldList){
-                System.debug('Field Name: '+matchingField.getFieldPath());
                 soqlQuery+=', '+matchingField.getFieldPath();
             }
             soqlQuery+=' FROM Opportunity WHERE Id =\''+opportunityToMatchId+'\'';
@@ -91,8 +113,10 @@
                 matchingThreshold = matchingThresholdList[0];
             }
             else{
-                AuraHandledException e = new AuraHandledException('Error: No Matching Threshold Found for Business Unit \''+businessUnit+'\'');
-                e.setMessage('Error: No Matching Threshold Found for Business Unit \''+businessUnit+'\'');
+                customException = true;
+                System.debug('No Matching Threshold Found for Business Unit \''+businessUnit+'\'');
+                AuraHandledException e = new AuraHandledException('No Matching Threshold Found for Business Unit \''+businessUnit+'\'');
+                e.setMessage('No Matching Threshold Found for Business Unit \''+businessUnit+'\'');
                 throw e;
             }
             
@@ -110,13 +134,8 @@
                     String mainOppFieldValue = (String) mainOpp.get(field.getFieldPath());
                     String thisOppFieldValue = (String) oppToCompare.get(field.getFieldPath());
                     
-                    if(mainOppFieldValue == thisOppFieldValue){
-                        fieldsMatched++;
-                        System.debug('Comparing field: '+field.getFieldPath()+'. Main Opp: "'+mainOppFieldValue+'", This Opp: "'+thisOppFieldValue+'" -- Matched!');
-                    } 
-                    
-                    else System.debug('Comparing field: '+field.getFieldPath()+'. Main Opp: "'+mainOppFieldValue+'", This Opp: "'+thisOppFieldValue+'"');
-                    
+                    if(mainOppFieldValue == thisOppFieldValue) fieldsMatched++; 
+                                        
                 }
                 
                 Double totalFieldCount = matchingFieldList.size();
@@ -135,11 +154,25 @@
             }
             
             if(!matchedOpportunityList.isEmpty()) return matchedOpportunityList;
-            else return null;
+            else {
+                System.debug('No Matching Opportunities Found.');
+                AuraHandledException e = new AuraHandledException('No Matching Opportunities Found.');
+                e.setMessage('No Matching Opportunities Found.');
+                customException = true;
+                throw e;
+            }
         } 
         catch (Exception e) {
-            AuraHandledException ex = new AuraHandledException(e.getMessage()+'\n'+ e.getStackTraceString());
-            ex.setMessage(e.getMessage()+'\n'+ e.getStackTraceString());
+            System.debug('Error caught: '+e.getMessage()+'\n'+e.getStackTraceString());
+            AuraHandledException ex;
+            if(customException == false) {
+                ex = new AuraHandledException(e.getMessage()+'\n'+ e.getStackTraceString());
+                ex.setMessage(e.getMessage()+'\n'+ e.getStackTraceString());
+            }
+            else {
+                ex = new AuraHandledException(e.getMessage());
+                ex.setMessage(e.getMessage());
+            }
             throw ex;
         }
     }
@@ -159,7 +192,7 @@
         List<Map<String,Object>> columnMap = new List<Map<String,Object>>();
         Map<String,Map<String,String>> typeAttributes = new Map<String,Map<String,String>>();
         typeAttributes.put('label', new Map<String,String>{'fieldName' =>'Name'});
-        Map<String,Object> recordURL = new Map<String,Object>{'label'=>'Name', 'fieldName'=>'Record_URL__c','type'=>'url','typeAttributes' => typeAttributes, 'sortable' => true};
+        Map<String,Object> recordURL = new Map<String,Object>{'label'=>'Name', 'fieldName'=>'recordURL','type'=>'url','typeAttributes' => typeAttributes, 'sortable' => true};
 
         columnMap.add(recordURL);
 
@@ -197,32 +230,11 @@
                 }
             }
 
-            if(field.getType().name().toLowerCase() == 'reference'){
-                System.debug('Reference Field: '+fieldPath);
-                if(fieldPath.endsWith('Id')) fieldPath = fieldPath.replace('Id','.Name');
-                else if(fieldPath.endsWith('__c')) fieldPath = fieldPath.replace('__c','__r.Name');
-                Map<String,Object> fieldMap = new Map<String,Object>{
-                    'label'=> field.getLabel(), 
-                    'fieldName' => '/lightning/r/+row.'+field.getFieldPath()+'+/view', 
-                    'type' => 'url', 
-                    'typeAttributes' => new Map<String, Object>{
-                        'label' => new Map<String, String>{
-                            'fieldName' => 'row.'+fieldPath
-                        },
-                        'target' => '_self'
-                    },
-                    'sortable' => true
-                };
-                System.debug(fieldMap);
-                columnMap.add(fieldMap);
-            }
-            else{
-                System.debug('Field Path: '+fieldPath);
-                
-                Map<String,Object> fieldMap = new Map<String,Object>{'label'=> field.getLabel(), 'fieldName' => fieldPath, 'type' => fieldType, 'sortable' => true};
-                System.debug('Field Map: '+fieldMap);
-                columnMap.add(fieldMap);
-            }
+            System.debug('Field Path: '+fieldPath);
+            
+            Map<String,Object> fieldMap = new Map<String,Object>{'label'=> field.getLabel(), 'fieldName' => fieldPath, 'type' => fieldType, 'sortable' => true};
+            System.debug('Field Map: '+fieldMap);
+            columnMap.add(fieldMap);
         }
 
         Map<String, Object> cellAttributes = new Map<String, Object>{'alignment'=>'left', 'class' => new Map<String,String>{'fieldName' => 'textColour'}};

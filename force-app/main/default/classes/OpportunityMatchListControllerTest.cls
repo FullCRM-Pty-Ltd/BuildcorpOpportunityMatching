@@ -123,6 +123,75 @@ public with sharing class OpportunityMatchListControllerTest {
 
     }
 
+    @isTest
+    static void GetColumnsFromFieldSetTest(){
+
+        List<Opportunity> mainOpps = [SELECT Id, Buildcorp_Business_Unit__c FROM Opportunity WHERE Name LIKE 'Match%'];
+
+        for(Opportunity mainOpp : mainOpps){
+
+            String fieldSetName = mainOpp.Buildcorp_Business_Unit__c.replace(' ','_')+'_Columns';
+
+            List<Schema.FieldSetMember> fieldSetMemberList = GetFieldsFromFieldSet('Opportunity', fieldSetName);
+
+            List<Map<String,Object>> columnMap = OpportunityMatchListController.GetColumnsFromFieldSet(mainOpp.Id);
+
+            System.debug('fieldSetMemberList: '+fieldSetMemberList);
+            SYstem.debug('ColumnMap: '+columnMap);
+
+            System.assertEquals(fieldSetMemberList.size()+2,columnMap.size(),'Column Retrieval Failed: '+(fieldSetMemberList.size()+2)+' columns expected, '+columnMap.size()+' columns retrieved.');
+
+
+        }
+    }
+
+    @isTest
+    static void NoOpportunitiesMatchingTest(){
+        List<Opportunity> allOpps = [SELECT Id FROM Opportunity WHERE NOT( Name LIKE 'Match%' )];
+        delete allOpps;
+
+        List<Opportunity> mainOpps = [SELECT Id, Buildcorp_Business_Unit__c FROM Opportunity WHERE Name LIKE 'Match%'];
+        
+        Boolean error = false;
+
+        try{
+            for(Opportunity mainOpp : mainOpps){
+                OpportunityMatchListController.RetrieveMatchingOpportunities(mainOpp.Id);            
+            }
+        }
+        catch(Exception e){
+            error = true;
+        }
+
+        System.assert(error);
+
+    }
+
+    @isTest
+    static void NoMatchingThresholdCMDTTest(){
+        List<Opportunity> mainOpps = [SELECT Id, Buildcorp_Business_Unit__c FROM Opportunity];
+        
+        for(Opportunity mainOpp : mainOpps){
+            mainOpp.Buildcorp_Business_Unit__c = null;            
+        }
+
+        update mainOpps;
+        
+        Boolean error = false;
+
+        try{
+            for(Opportunity mainOpp : mainOpps){
+                OpportunityMatchListController.RetrieveMatchingOpportunities(mainOpp.Id);            
+            }
+        }
+
+        catch (Exception e){
+            error = true;
+        }
+
+        System.assert(error);
+    }
+
     static List<String> GetPickListValuesFromField(String objectName, String fieldName){
 
         List<String> pickListValues = new List<String>();
