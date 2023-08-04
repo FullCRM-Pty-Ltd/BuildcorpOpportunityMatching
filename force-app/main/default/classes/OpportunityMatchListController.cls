@@ -27,7 +27,7 @@
 
         try {
 
-            Opportunity mainOpp = [SELECT Id, Buildcorp_Business_Unit__c FROM Opportunity WHERE Id = :opportunityToMatchId];
+            Opportunity mainOpp = [SELECT Id, Buildcorp_Business_Unit__c, RecordTypeId FROM Opportunity WHERE Id = :opportunityToMatchId];
 
             String businessUnit;
 
@@ -73,7 +73,7 @@
                 soqlQuery+=', '+fieldPath;
             }
 
-            soqlQuery+=' FROM Opportunity WHERE Id !=\''+opportunityToMatchId+'\' AND Buildcorp_Business_Unit__c = \''+businessUnit+'\' AND (';
+            soqlQuery+=' FROM Opportunity WHERE Id !=\''+opportunityToMatchId+'\' AND Buildcorp_Business_Unit__c = \''+businessUnit+'\' AND RecordTypeId = \''+mainOpp.RecordTypeId+'\' AND (';
 
             for(Schema.FieldSetMember matchingField : matchingFieldList){
                 String fieldPath = matchingField.getFieldPath();
@@ -86,7 +86,11 @@
             soqlQuery += ')';
 
             System.debug('SOQL Query updated: '+soqlQuery);
-            //Query should like like this: 'SELECT Id, Name, {Field1}, {Field2}, etc., FROM Opportunity WHERE Id != {MainOppID} AND Buildcorp_Business_Unit__c = {MainOppBusinessUnit} AND ({Field1} != null OR {Field2} != null etc.)'
+            /*Query should like like this: 
+            'SELECT Id, Name, {Field1}, {Field2}, etc., 
+            FROM Opportunity 
+            WHERE Id != {MainOppID} AND Buildcorp_Business_Unit__c = {MainOppBusinessUnit} AND RecordTypeId = {MainOppRecordTypeId} AND ({Field1} != null OR {Field2} != null OR ... etc.)'
+            */
 
 
             List<Opportunity> oppsToCompare = Database.query(soqlQuery);
@@ -130,19 +134,20 @@
             
             for(Opportunity oppToCompare : oppsToCompare){
                 Double fieldsMatched = 0;
+                Double totalFieldCount = 0;
                 System.debug('****************************************************');
                 System.debug('Opportunity: '+oppToCompare.Name);
                 for(Schema.FieldSetMember field : matchingFieldList){
                     String mainOppFieldValue = (String) mainOpp.get(field.getFieldPath());
                     String thisOppFieldValue = (String) oppToCompare.get(field.getFieldPath());
                     
-                    if(mainOppFieldValue == null || thisOppFieldValue == null) continue;
+                    if(mainOppFieldValue == null && thisOppFieldValue == null) continue;
 
                     if(mainOppFieldValue == thisOppFieldValue) fieldsMatched++; 
+                    totalFieldCount++;
                                         
                 }
                 
-                Double totalFieldCount = matchingFieldList.size();
                 Double matchedPct = fieldsMatched / totalFieldCount;
                 
                 System.debug('Total Fields: '+totalFieldCount+', Matched Fields: '+fieldsMatched+', Percentage Match: '+matchedPct);
