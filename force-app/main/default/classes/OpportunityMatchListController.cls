@@ -86,7 +86,9 @@
             soqlQuery += ')';
 
             System.debug('SOQL Query updated: '+soqlQuery);
-            
+            //Query should like like this: 'SELECT Id, Name, {Field1}, {Field2}, etc., FROM Opportunity WHERE Id != {MainOppID} AND Buildcorp_Business_Unit__c = {MainOppBusinessUnit} AND ({Field1} != null OR {Field2} != null etc.)'
+
+
             List<Opportunity> oppsToCompare = Database.query(soqlQuery);
 
             if(oppsToCompare.isEmpty()){
@@ -134,6 +136,8 @@
                     String mainOppFieldValue = (String) mainOpp.get(field.getFieldPath());
                     String thisOppFieldValue = (String) oppToCompare.get(field.getFieldPath());
                     
+                    if(mainOppFieldValue == null || thisOppFieldValue == null) continue;
+
                     if(mainOppFieldValue == thisOppFieldValue) fieldsMatched++; 
                                         
                 }
