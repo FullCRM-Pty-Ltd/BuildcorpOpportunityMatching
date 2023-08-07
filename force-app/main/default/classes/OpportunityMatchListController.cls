@@ -20,87 +20,26 @@
 
  public with sharing class OpportunityMatchListController {
 
-    /*@AuraEnabled(cacheable=true)
-    public static List<String> GetMatchingFieldList(Id mainOppId, Id oppToCompareId){
+    /*
+    Method: RetrieveMatchingOpportunities
+    Input: Id of the 'main' Opportunity against which you are comparing each other Opportunity (this will be the Opportunity where the Matching List is displayed)
+    Output: A list of Opportunities that match the main Opportunity
 
-        boolean customException = false;
-
-
-        try{
-
-            Opportunity mainOpp = [SELECT Id, Buildcorp_Business_Unit__c, RecordTypeId FROM Opportunity WHERE Id = :mainOppId];
-
-            String businessUnit;
-
-            if(mainOpp.Buildcorp_Business_Unit__c != null) businessUnit = mainOpp.Buildcorp_Business_Unit__c;
-            else{
-                customException = true;
-                System.debug('Please Enter a Business Unit for this Opportunity');
-                AuraHandledException e = new AuraHandledException('Please Enter a Business Unit for this Opportunity');
-                e.setMessage('Please Enter a Business Unit for this Opportunity');
-                throw e;
-            }
-            
-            String fieldSetName = businessUnit.replace(' ','_')+'_Questionnaire';
-            
-            System.debug('Getting matching fields from '+fieldSetName+' fieldset.');
-            
-            List<Schema.FieldSetMember> matchingFieldList = GetFieldsFromFieldSet('Opportunity', fieldSetName);
-            
-            System.debug('Fields retrieved: '+matchingFieldList);
-            
-            String soqlQuery = 'SELECT Id, Name';
-            
-            for(Schema.FieldSetMember matchingField : matchingFieldList){
-                soqlQuery+=', '+matchingField.getFieldPath();
-            }
-
-            soqlQuery +=' FROM Opportunity WHERE Id = \''+oppToCompareId+'\'';
-
-            Opportunity oppToCompare = Database.query(soqlQuery);
-
-            soqlQuery = 'SELECT Id, Name';
-                
-                for(Schema.FieldSetMember matchingField : matchingFieldList){
-                    soqlQuery+=', '+matchingField.getFieldPath();
-                }
-            soqlQuery+=' FROM Opportunity WHERE Id =\''+mainOppId+'\'';
-
-            mainOpp = Database.query(soqlQuery);
-
-            List<String> matchingFields = new List<String>();
-            
-            for(Schema.FieldSetMember field : matchingFieldList){
-                String mainOppFieldValue = (String) mainOpp.get(field.getFieldPath());
-                String thisOppFieldValue = (String) oppToCompare.get(field.getFieldPath());
-                
-                if(mainOppFieldValue == null) continue;
-
-                if(mainOppFieldValue == thisOppFieldValue) matchingFields.add(field.getLabel());
-                                    
-            }
-
-            System.debug('Matching Field List: '+matchingFields);
-
-            return matchingFields;
-        }
-
-        catch (Exception e) {
-            System.debug('Error caught: '+e.getMessage()+'\n'+e.getStackTraceString());
-            AuraHandledException ex;
-            if(customException == false) {
-                ex = new AuraHandledException(e.getMessage()+'\n'+ e.getStackTraceString());
-                ex.setMessage(e.getMessage()+'\n'+ e.getStackTraceString());
-            }
-            else {
-                ex = new AuraHandledException(e.getMessage());
-                ex.setMessage(e.getMessage());
-            }
-            throw ex;
-        }
-        
-
-    }*/
+    This is the 'main' method used by the opportunityMatchList LWC. The user will launch the LWC from an Opportunity, at which point its ID will be fed
+    into this method. The method will do the following:
+    1. Get the Buildcorp Business Unit of the main Opportunity
+    2. Find the appropriate Opportunity Field Set for the given business unit (this field set will end with '_Questionnaire')
+    3. Retrieve all the fields from the Field Set
+    4. Get all Opportunities with the same Business Unit and Record Type as the main Opportunity, where at least one of the fields defined in the Field Set are filled in
+    5. Get the Matching Threshold, which is stored in CMDT per business unit. This defines the minimum percentage of fields that must match for an Opportunity to be included in the list
+    5. For each Opportunity, compare the fields from the Field Set against those on the main Opportunity
+    6. If a field matches between the Opportunities, increment the 'Fields Matched' and 'Total Fields Compared' counter
+    7. If a field on the main Opportunity is blank, skip -- don't compare, and don't count the field in the 'Total Fields Compared' counter
+    8. If a field on the main Opportunity is NOT blank but the field on the comparison Opportunity IS blank, don't count it as a 'matched' field, but count it in the 'total fields' count
+    9. Once all fields are compared for a given Opportunity, divide the number of fields matched by the total number of fields compared to come up with a 'Match Percent' for that Opportunity
+    10. If this Match Percent equals or exceeds the Matching Threshold for the given business unit, add the Opportunity into the list to be returned
+    11. Return the list of matching Opportunities, to be displayed in the LWC
+    */
 
     @AuraEnabled (cacheable=false)
     public static List<Opportunity> RetrieveMatchingOpportunities(Id opportunityToMatchId){
