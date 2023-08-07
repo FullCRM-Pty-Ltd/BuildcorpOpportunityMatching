@@ -20,6 +20,88 @@
 
  public with sharing class OpportunityMatchListController {
 
+    /*@AuraEnabled(cacheable=true)
+    public static List<String> GetMatchingFieldList(Id mainOppId, Id oppToCompareId){
+
+        boolean customException = false;
+
+
+        try{
+
+            Opportunity mainOpp = [SELECT Id, Buildcorp_Business_Unit__c, RecordTypeId FROM Opportunity WHERE Id = :mainOppId];
+
+            String businessUnit;
+
+            if(mainOpp.Buildcorp_Business_Unit__c != null) businessUnit = mainOpp.Buildcorp_Business_Unit__c;
+            else{
+                customException = true;
+                System.debug('Please Enter a Business Unit for this Opportunity');
+                AuraHandledException e = new AuraHandledException('Please Enter a Business Unit for this Opportunity');
+                e.setMessage('Please Enter a Business Unit for this Opportunity');
+                throw e;
+            }
+            
+            String fieldSetName = businessUnit.replace(' ','_')+'_Questionnaire';
+            
+            System.debug('Getting matching fields from '+fieldSetName+' fieldset.');
+            
+            List<Schema.FieldSetMember> matchingFieldList = GetFieldsFromFieldSet('Opportunity', fieldSetName);
+            
+            System.debug('Fields retrieved: '+matchingFieldList);
+            
+            String soqlQuery = 'SELECT Id, Name';
+            
+            for(Schema.FieldSetMember matchingField : matchingFieldList){
+                soqlQuery+=', '+matchingField.getFieldPath();
+            }
+
+            soqlQuery +=' FROM Opportunity WHERE Id = \''+oppToCompareId+'\'';
+
+            Opportunity oppToCompare = Database.query(soqlQuery);
+
+            soqlQuery = 'SELECT Id, Name';
+                
+                for(Schema.FieldSetMember matchingField : matchingFieldList){
+                    soqlQuery+=', '+matchingField.getFieldPath();
+                }
+            soqlQuery+=' FROM Opportunity WHERE Id =\''+mainOppId+'\'';
+
+            mainOpp = Database.query(soqlQuery);
+
+            List<String> matchingFields = new List<String>();
+            
+            for(Schema.FieldSetMember field : matchingFieldList){
+                String mainOppFieldValue = (String) mainOpp.get(field.getFieldPath());
+                String thisOppFieldValue = (String) oppToCompare.get(field.getFieldPath());
+                
+                if(mainOppFieldValue == null) continue;
+
+                if(mainOppFieldValue == thisOppFieldValue) matchingFields.add(field.getLabel());
+                                    
+            }
+
+            System.debug('Matching Field List: '+matchingFields);
+
+            return matchingFields;
+        }
+
+        catch (Exception e) {
+            System.debug('Error caught: '+e.getMessage()+'\n'+e.getStackTraceString());
+            AuraHandledException ex;
+            if(customException == false) {
+                ex = new AuraHandledException(e.getMessage()+'\n'+ e.getStackTraceString());
+                ex.setMessage(e.getMessage()+'\n'+ e.getStackTraceString());
+            }
+            else {
+                ex = new AuraHandledException(e.getMessage());
+                ex.setMessage(e.getMessage());
+            }
+            throw ex;
+        }
+        
+
+    }*/
+
     @AuraEnabled (cacheable=false)
     public static List<Opportunity> RetrieveMatchingOpportunities(Id opportunityToMatchId){
 
@@ -141,7 +223,7 @@
                     String mainOppFieldValue = (String) mainOpp.get(field.getFieldPath());
                     String thisOppFieldValue = (String) oppToCompare.get(field.getFieldPath());
                     
-                    if(mainOppFieldValue == null && thisOppFieldValue == null) continue;
+                    if(mainOppFieldValue == null) continue;
 
                     if(mainOppFieldValue == thisOppFieldValue) fieldsMatched++; 
                     totalFieldCount++;
@@ -187,7 +269,6 @@
     }
 
 
-    //For Match Pct: return Map<Opportunity,Double> where the value is the percent, input this map into the below method 
     @AuraEnabled(cacheable=true)
     public static List<Map<String,Object>> GetColumnsFromFieldSet(Id opportunityId){
         Opportunity opp = [SELECT Id, Buildcorp_Business_Unit__c FROM Opportunity WHERE Id = :opportunityId][0];
