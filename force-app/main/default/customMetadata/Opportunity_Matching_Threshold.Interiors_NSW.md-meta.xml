@@ -3,6 +3,10 @@
     <label>Interiors NSW</label>
     <protected>false</protected>
     <values>
+        <field>Business_Unit__c</field>
+        <value xsi:type="xsd:string">Interiors NSW</value>
+    </values>
+    <values>
         <field>Matching_Threshold__c</field>
         <value xsi:type="xsd:double">50.0</value>
     </values>
