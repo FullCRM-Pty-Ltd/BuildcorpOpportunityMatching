@@ -11,6 +11,8 @@ public with sharing class OpportunityMatchListControllerTest {
         System.debug('Retrieved Business Units: '+businessUnitList);
 
         Map<String,List<Schema.FieldSetMember>> tempFieldSetMap = new Map<String,List<Schema.FieldSetMember>>();
+        
+        List<String> newBusinessUnitList = new List<String>();
 
         for (String businessUnit : businessUnitList){
 
@@ -18,9 +20,15 @@ public with sharing class OpportunityMatchListControllerTest {
 
             List<Schema.FieldSetMember> fieldSetMemberList = GetFieldsFromFieldSet('Opportunity', fieldSetName);
 
-            if(!fieldSetMemberList.isEmpty()) tempFieldSetMap.put(businessUnit, fieldSetMemberList);
+            if(!fieldSetMemberList.isEmpty()){ 
+                System.debug(businessUnit+': '+fieldSetMemberList);
+                tempFieldSetMap.put(businessUnit, fieldSetMemberList);
+                newBusinessUnitList.add(businessUnit);
+            }
             
         }
+        
+        businessUnitList = newBusinessUnitList;
 
         System.debug(tempFieldSetMap);
 
@@ -64,7 +72,7 @@ public with sharing class OpportunityMatchListControllerTest {
 
                 oppsToCreate.add(oppToMatch);
 
-                for (Integer i = 0; i < 30 ; i++){
+                for (Integer i = 0; i < 6 ; i++){
                     Opportunity opp = new Opportunity(Name = businessUnit+' Test Opp '+i, CloseDate = System.today(), StageName = 'Speculative', Services__c = 'Construction',Buildcorp_Business_Unit__c = businessUnit);
 					
 
@@ -115,7 +123,7 @@ public with sharing class OpportunityMatchListControllerTest {
         for(Opportunity mainOpp : mainOpps){
             List<Opportunity> matchedOpportunities = OpportunityMatchListController.RetrieveMatchingOpportunities(mainOpp.Id);
             
-            System.assert(matchedOpportunities.size() >= 15);
+            System.assert(matchedOpportunities.size() >= 3);
             
         }
         

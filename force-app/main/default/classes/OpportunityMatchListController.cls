@@ -69,6 +69,14 @@
             
             System.debug('Fields retrieved: '+matchingFieldList);
             
+            if(matchingFieldList == null){
+                customException = true;
+                System.debug('No Field Set Found with Name: \''+fieldSetName+'\'');
+                AuraHandledException e = new AuraHandledException('No Field Set Found with Name: \''+fieldSetName+'\'');
+                e.setMessage('No Field Set Found with Name: \''+fieldSetName+'\'');
+                throw e;
+            }
+            
             String soqlQuery = 'SELECT Id, Name';
             
             for(Schema.FieldSetMember matchingField : matchingFieldList){
@@ -82,6 +90,16 @@
             List<Schema.FieldSetMember> columnFieldList = GetFieldsFromFieldSet('Opportunity', columnFieldSetName);
             
             System.debug('Fields retrieved: '+columnFieldList);
+            
+            if(columnFieldList == null){
+                
+                String columnFieldSetNameNoUnderscore = columnFieldSetName.replace('_',' ');
+                customException = true;
+                System.debug('No Field Set Found with Name: \''+columnFieldSetNameNoUnderscore+'\'');
+                AuraHandledException e = new AuraHandledException('No Field Set Found with Name: \''+columnFieldSetNameNoUnderscore+'\'');
+                e.setMessage('No Field Set Found with Name: \''+columnFieldSetNameNoUnderscore+'\'');
+                throw e;
+            }
             
             for(Schema.FieldSetMember columnField : columnFieldList){
                 String fieldPath = columnField.getFieldPath();
@@ -210,67 +228,94 @@
 
     @AuraEnabled(cacheable=true)
     public static List<Map<String,Object>> GetColumnsFromFieldSet(Id opportunityId){
-        Opportunity opp = [SELECT Id, Buildcorp_Business_Unit__c FROM Opportunity WHERE Id = :opportunityId][0];
-
-        String businessUnit = opp.Buildcorp_Business_Unit__c;
-
-        String fieldSetName = businessUnit.replace(' ','_')+'_Columns';
-
-        List<Schema.FieldSetMember> fieldList = GetFieldsFromFieldSet('Opportunity', fieldSetName);
-
-        List<Map<String,Object>> columnMap = new List<Map<String,Object>>();
-        Map<String,Map<String,String>> typeAttributes = new Map<String,Map<String,String>>();
-        typeAttributes.put('label', new Map<String,String>{'fieldName' =>'Name'});
-        Map<String,Object> recordURL = new Map<String,Object>{'label'=>'Name', 'fieldName'=>'recordURL','type'=>'url','typeAttributes' => typeAttributes, 'sortable' => true};
-
-        columnMap.add(recordURL);
-
-        for (Schema.FieldSetMember field : fieldList){
-
-            String fieldPath = field.getFieldPath();
-
-            System.debug('Field Type: '+field.getType().name());
-
-            String fieldType; 
-            switch on field.getType().name(){
-                when 'BOOLEAN'{
-                    fieldType = 'boolean';
-                }
-                when 'CURRENCY'{
-                    fieldType = 'currency';
-                }
-                when 'DATE'{
-                    fieldType = 'date-local';
-                }
-                when 'DATETIME'{
-                    fieldType = 'date';
-                }
-                when 'DOUBLE', 'INTEGER', 'LONG'{
-                    fieldType = 'number';
-                }
-                when 'EMAIL'{
-                    fieldType = 'email';
-                }
-                when 'PHONE'{
-                    fieldType = 'phone';
-                }
-                when else{
-                    fieldType = 'text';
-                }
-            }
-
-            System.debug('Field Path: '+fieldPath);
+        
+        boolean customException = false;
+        
+        try{
+            Opportunity opp = [SELECT Id, Buildcorp_Business_Unit__c FROM Opportunity WHERE Id = :opportunityId][0];
+    
+            String businessUnit = opp.Buildcorp_Business_Unit__c;
+    
+            String fieldSetName = businessUnit.replace(' ','_')+'_Columns';
+    
+            List<Schema.FieldSetMember> fieldList = GetFieldsFromFieldSet('Opportunity', fieldSetName);
             
-            Map<String,Object> fieldMap = new Map<String,Object>{'label'=> field.getLabel(), 'fieldName' => fieldPath, 'type' => fieldType, 'sortable' => true};
-            System.debug('Field Map: '+fieldMap);
-            columnMap.add(fieldMap);
+            if(fieldList == null){
+                    customException = true;
+                    System.debug('No Field Set Found with Name: \''+fieldSetName+'\'');
+                    AuraHandledException e = new AuraHandledException('No Field Set Found with Name: \''+fieldSetName+'\'');
+                    e.setMessage('No Field Set Found with Name: \''+fieldSetName+'\'');
+                    throw e;
+            }
+    
+            List<Map<String,Object>> columnMap = new List<Map<String,Object>>();
+            Map<String,Map<String,String>> typeAttributes = new Map<String,Map<String,String>>();
+            typeAttributes.put('label', new Map<String,String>{'fieldName' =>'Name'});
+            Map<String,Object> recordURL = new Map<String,Object>{'label'=>'Name', 'fieldName'=>'recordURL','type'=>'url','typeAttributes' => typeAttributes, 'sortable' => true};
+    
+            columnMap.add(recordURL);
+    
+            for (Schema.FieldSetMember field : fieldList){
+    
+                String fieldPath = field.getFieldPath();
+    
+                System.debug('Field Type: '+field.getType().name());
+    
+                String fieldType; 
+                switch on field.getType().name(){
+                    when 'BOOLEAN'{
+                        fieldType = 'boolean';
+                    }
+                    when 'CURRENCY'{
+                        fieldType = 'currency';
+                    }
+                    when 'DATE'{
+                        fieldType = 'date-local';
+                    }
+                    when 'DATETIME'{
+                        fieldType = 'date';
+                    }
+                    when 'DOUBLE', 'INTEGER', 'LONG'{
+                        fieldType = 'number';
+                    }
+                    when 'EMAIL'{
+                        fieldType = 'email';
+                    }
+                    when 'PHONE'{
+                        fieldType = 'phone';
+                    }
+                    when else{
+                        fieldType = 'text';
+                    }
+                }
+    
+                System.debug('Field Path: '+fieldPath);
+                
+                Map<String,Object> fieldMap = new Map<String,Object>{'label'=> field.getLabel(), 'fieldName' => fieldPath, 'type' => fieldType, 'sortable' => true};
+                System.debug('Field Map: '+fieldMap);
+                columnMap.add(fieldMap);
+            }
+    
+            Map<String, Object> cellAttributes = new Map<String, Object>{'alignment'=>'left', 'class' => new Map<String,String>{'fieldName' => 'textColour'}};
+            Map<String,Object> matchPercentMap = new Map<String,Object>{'label' => 'Match %', 'fieldName' => 'Match_Percent__c', 'type' => 'percent', 'sortable' => true, 'cellAttributes' => cellAttributes};
+            columnMap.add(matchPercentMap);
+            System.debug(columnMap);
+            return columnMap;
         }
-
-        Map<String, Object> cellAttributes = new Map<String, Object>{'alignment'=>'left', 'class' => new Map<String,String>{'fieldName' => 'textColour'}};
-        Map<String,Object> matchPercentMap = new Map<String,Object>{'label' => 'Match %', 'fieldName' => 'Match_Percent__c', 'type' => 'percent', 'sortable' => true, 'cellAttributes' => cellAttributes};
-        columnMap.add(matchPercentMap);
-        System.debug(columnMap);
-        return columnMap;
+        
+        catch (Exception e) {
+            System.debug('Error caught: '+e.getMessage()+'\n'+e.getStackTraceString());
+            AuraHandledException ex;
+            if(customException == false) {
+                ex = new AuraHandledException(e.getMessage()+'\n'+ e.getStackTraceString());
+                ex.setMessage(e.getMessage()+'\n'+ e.getStackTraceString());
+            }
+            else {
+                ex = new AuraHandledException(e.getMessage());
+                ex.setMessage(e.getMessage());
+            }
+            throw ex;
+        }
 
     }
 
@@ -279,11 +324,13 @@
         Map<String, Schema.SObjectType> GlobalDescribeMap = Schema.getGlobalDescribe(); 
         Schema.SObjectType SObjectTypeObj = GlobalDescribeMap.get(objectName);
         Schema.DescribeSObjectResult DescribeSObjectResultObj = SObjectTypeObj.getDescribe();
-
+		System.debug('Object: '+objectName+', Field Set: '+fieldSetName);
         system.debug('====>' + DescribeSObjectResultObj.FieldSets.getMap().get(fieldSetName));
 
         Schema.FieldSet fieldSetObj = DescribeSObjectResultObj.FieldSets.getMap().get(fieldSetName);
-
+		
+        if(fieldSetObj == null) return null;
+        
         List<Schema.FieldSetMember> fieldSetMemberList =  fieldSetObj.getFields();
         system.debug('fieldSetMemberList ====>' + fieldSetMemberList);  
 
