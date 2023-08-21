@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Queensland_Questionnaire</fullName>
+    <description>Tracks all of the Queensland fields related to the Opportunity Questionnaire.
+This Field Set will be used to determine which fields to compare amongst other Queensland Opportunities</description>
+    <label>Queensland Questionnaire</label>
+</FieldSet>

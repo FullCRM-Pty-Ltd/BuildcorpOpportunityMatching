@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Asset_Solutions_Questionnaire</fullName>
+    <description>Tracks all of the Asset Solutions fields related to the Opportunity Questionnaire.
+This Field Set will be used to determine which fields to compare amongst other Asset Solutions Opportunities</description>
+    <displayedFields>
+        <field>Relationship_with_Client_Consultant__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <displayedFields>
+        <field>History_of_Relationships_Tender_Result__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <label>Asset Solutions Questionnaire</label>
+</FieldSet>
