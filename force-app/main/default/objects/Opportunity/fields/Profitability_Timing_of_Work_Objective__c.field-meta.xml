@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Profitability_Timing_of_Work_Objective__c</fullName>
+    <description>Profitability / Timing of Work Objective</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Profitability and timing to meet planned work objectives</inlineHelpText>
+    <label>Profitability / Timing of Work Objective</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Profitability_Timing_of_Work_Objective</valueSetName>
+    </valueSet>
+</CustomField>

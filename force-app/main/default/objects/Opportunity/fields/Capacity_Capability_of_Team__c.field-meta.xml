@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Capacity_Capability_of_Team__c</fullName>
+    <description>Capacity/capability of front end and delivery team</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Capacity/capability of front end and delivery team</inlineHelpText>
+    <label>Capacity / Capability of Team</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Capacity_Capability_of_Team</valueSetName>
+    </valueSet>
+</CustomField>

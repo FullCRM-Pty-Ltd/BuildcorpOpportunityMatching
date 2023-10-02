@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Asset_Solutions_Columns</fullName>
+    <description>This field set determines the fields that will be displayed when showing the Matching Opportunities list on an Opportunity.</description>
+    <label>Asset Solutions Columns</label>
+</FieldSet>
