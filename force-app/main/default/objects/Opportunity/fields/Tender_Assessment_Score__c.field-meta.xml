@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tender_Assessment_Score__c</fullName>
+    <description>Used to accumulate the tender assessment questions</description>
+    <externalId>false</externalId>
+    <formula>CASE(Conversion_Process__c , 
+&quot;Completed&quot;, 2,
+&quot;Open&quot;, 0, 0) +
+
+CASE(Team_Experience__c , 
+&quot;Strong&quot;, 3, 
+&quot;Developing&quot;, 1,
+&quot;Weak&quot;, 0,0) +
+
+CASE(Work_in_hand_of_competitors__c ,
+&quot;More than Buildcorp&quot;, 2, 
+&quot;Equal to Buildcorp&quot;, 1,
+&quot;Less than Buildcorp&quot;, 0,0) +
+
+CASE(Site_location__c ,
+&quot;Metro&quot;, 1, 
+&quot;New&quot;, -1,0) +
+
+CASE(Is_Buildcorp_preferred__c ,
+&quot;Yes&quot;, 3, 
+&quot;No&quot;, 0,0) +
+
+CASE(Competitors_Experience__c ,
+&quot;More than Buildcorp&quot;, 1, 
+&quot;Equal to Buildcorp&quot;, 2,
+&quot;Less than Buildcorp&quot;, 3,0) +
+
+CASE(Tender_List__c ,
+&quot;3 or Less&quot;, 3, 
+&quot;4&quot;, 2,
+&quot;5&quot;, 1, 
+&quot;&gt; 5&quot;, 0,0) +
+
+CASE(Political_Landscape__c ,
+&quot;Low&quot;, 3, 
+&quot;Neutral&quot;, 1,
+&quot;High&quot;, 0,0) +
+
+CASE( Owner_Occupier__c , 
+&quot;Yes&quot;, 3,
+&quot;No&quot;, 0,0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Tender Assessment Score</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

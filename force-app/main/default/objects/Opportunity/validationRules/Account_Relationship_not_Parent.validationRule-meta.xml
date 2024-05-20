@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Relationship_not_Parent</fullName>
+    <active>false</active>
+    <description>Accounts in the Relationship field cannot be Parent</description>
+    <errorConditionFormula>OR(
+Client__r.Is_Parent_Account__c,
+Project_Manager__r.Is_Parent_Account__c,
+Architect__r.Is_Parent_Account__c,
+QS__r.Is_Parent_Account__c,
+Influencer__r.Is_Parent_Account__c,
+Influencer_2__r.Parent.Is_Parent_Account__c,
+Influencer_3__r.Is_Parent_Account__c,
+Influencer_4__r.Is_Parent_Account__c)</errorConditionFormula>
+    <errorMessage>Relationship Accounts cannot be Parent Accounts, please substitute with the appropriate Child Account.</errorMessage>
+</ValidationRule>

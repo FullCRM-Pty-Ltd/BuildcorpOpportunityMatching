@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Conga_Composer_Contact_Role_Document_Opportunity</fullName>
+    <availability>online</availability>
+    <description>Date of last use of Update Button from Conga Solution record: https://buildcorp--apxtconga4.ap4.visual.force.com/a0q6F00000RoEeBQAV
+04-Aug-2020 10:54:46 AM
+Date of last use of Update Button from Conga Solution record: https://buildcorp--apxtconga4.ap4.visual.force.com/a0q6F00000RoEeBQAV
+04-Aug-2020 10:55:32 AM</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Buildcorp Relationship Document</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/apex/APXTConga4__Conga_Composer
+?sessionId={!API.Session_ID}
+&amp;serverUrl={!API.Partner_Server_URL_370}
+&amp;id={!Opportunity.Id}
+&amp;DS7=1
+
+&amp;QueryId=[ContactRoleDetails]a0k6F00001ri2ZT?pv0={!Opportunity.Id}
+
+&amp;TemplateId=a0s6F00000gevdw</url>
+</WebLink>

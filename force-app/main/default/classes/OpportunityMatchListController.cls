@@ -28,7 +28,7 @@
     This is the 'main' method used by the opportunityMatchList LWC. The user will launch the LWC from an Opportunity, at which point its ID will be fed
     into this method. The method will do the following:
     1. Get the Buildcorp Business Unit of the main Opportunity
-    2. Find the appropriate Opportunity Field Set for the given business unit (this field set will end with '_Questionnaire')
+    2. Find the appropriate Opportunity Field Set for the given business unit (this field set will end with '_Q')
     3. Retrieve all the fields from the Field Set
     4. Get all Opportunities with the same Business Unit and Record Type as the main Opportunity, where at least one of the fields defined in the Field Set are filled in
     5. Get the Matching Threshold, which is stored in CMDT per business unit. This defines the minimum percentage of fields that must match for an Opportunity to be included in the list
@@ -48,7 +48,7 @@
 
         try {
 
-            Opportunity mainOpp = [SELECT Id, Buildcorp_Business_Unit__c, RecordTypeId FROM Opportunity WHERE Id = :opportunityToMatchId];
+            Opportunity mainOpp = [SELECT Id, Buildcorp_Business_Unit__c, RecordTypeId, RecordType.DeveloperName FROM Opportunity WHERE Id = :opportunityToMatchId];
 
             String businessUnit;
 
@@ -61,7 +61,7 @@
                 throw e;
             }
             
-            String fieldSetName = businessUnit.replace(' ','_')+'_Questionnaire';
+            String fieldSetName = (businessUnit+'_'+mainOpp.RecordType.DeveloperName).replace(' ','_')+'_Q';
             
             System.debug('Getting matching fields from '+fieldSetName+' fieldset.');
             
@@ -188,7 +188,7 @@
                                         
                 }
                 
-                if (totalFieldCount == 0) continue;
+                if (totalFieldCount == 0 ) continue;
 
                 Double matchedPct = fieldsMatched / totalFieldCount;
                 

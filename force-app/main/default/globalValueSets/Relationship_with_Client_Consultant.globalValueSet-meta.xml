@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Strong</fullName>
+        <default>false</default>
+        <label>Strong (+5)</label>
+    </customValue>
+    <customValue>
+        <fullName>Developing</fullName>
+        <default>false</default>
+        <label>Developing (+2)</label>
+    </customValue>
+    <customValue>
+        <fullName>New</fullName>
+        <default>false</default>
+        <label>New (+1)</label>
+    </customValue>
+    <customValue>
+        <fullName>Neutral</fullName>
+        <default>false</default>
+        <label>Neutral (0)</label>
+    </customValue>
+    <customValue>
+        <fullName>Weak</fullName>
+        <default>false</default>
+        <label>Weak (-5)</label>
+    </customValue>
+    <masterLabel>Relationship with Client / Consultant</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

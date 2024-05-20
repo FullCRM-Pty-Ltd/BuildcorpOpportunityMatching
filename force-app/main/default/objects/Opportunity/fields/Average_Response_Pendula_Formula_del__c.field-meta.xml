@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Average_Response_Pendula_Formula_del__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(Average_Response_Pendula_del__c &gt;= 8, IMAGE(&quot;/resource/GREENFACE&quot;, &quot;Positive&quot;,30,35),
+IF(Average_Response_Pendula_del__c &gt;= 6, IMAGE(&quot;/resource/ORANGEFACE&quot;, &quot;Neutral&quot;,30,35),
+IF(Average_Response_Pendula_del__c &gt;= 3, IMAGE(&quot;/resource/REDFACE&quot;, &quot;Negative&quot;,30,35),
+IF(Average_Response_Pendula_del__c &gt; 0, IMAGE(&quot;/resource/DEVILFACE&quot;, &quot;Very Negative&quot;,30,35),
+&quot;&quot;))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Average Response</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Profile_Completeness__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( ISBLANK( Amount ) ,0,0.25)+
+IF( ISBLANK(  Suburb__c  ) ,0,0.10)+
+IF( ISPICKVAL(  Buildcorp_Business_Unit__c  , &quot;&quot;) ,0,0.10)+
+IF( ISPICKVAL(  Sector__c   , &quot;&quot;) ,0,0.10)+
+IF( ISPICKVAL(   Services__c  , &quot;&quot;) ,0,0.10)+
+IF( ISPICKVAL(   Priority__c   , &quot;&quot;) ,0,0.10)+
+IF( TODAY() &gt;= CloseDate ,0,0.25)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Profile Completeness</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

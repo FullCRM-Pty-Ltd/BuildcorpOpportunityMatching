@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Connected to current project</fullName>
+        <default>false</default>
+        <label>Connected to current project (+5)</label>
+    </customValue>
+    <customValue>
+        <fullName>In target area</fullName>
+        <default>false</default>
+        <label>In target area (+2)</label>
+    </customValue>
+    <customValue>
+        <fullName>Adjoining target area</fullName>
+        <default>false</default>
+        <label>Adjoining target area (+1)</label>
+    </customValue>
+    <customValue>
+        <fullName>Outside of target area</fullName>
+        <default>false</default>
+        <label>Outside of target area (0)</label>
+    </customValue>
+    <customValue>
+        <fullName>Unknown</fullName>
+        <default>false</default>
+        <label>Unknown (-5)</label>
+    </customValue>
+    <masterLabel>Location</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

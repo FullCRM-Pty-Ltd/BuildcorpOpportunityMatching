@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Employee_Relationship__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+Employee_Relationship_Score__c &gt;=6,
+IMAGE(&quot;/resource/1458795666000/CSAT_Satisfied&quot;, &quot;&quot;), 
+IF(
+AND(
+Employee_Relationship_Score__c &lt;6, Employee_Relationship_Score__c &gt;=3), 
+IMAGE(&quot;/resource/1458795691000/CSAT_Neutral&quot;,&quot;&quot;), IMAGE(&quot;/resource/1458795716000/CSAT_Dissatisfied&quot;,&quot;&quot;,22,22)) )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Buildcorp Relationship</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Buildcorp advantage</fullName>
+        <default>false</default>
+        <label>Buildcorp advantage (+5)</label>
+    </customValue>
+    <customValue>
+        <fullName>Slight advantage</fullName>
+        <default>false</default>
+        <label>Slight advantage (+2)</label>
+    </customValue>
+    <customValue>
+        <fullName>Neutral</fullName>
+        <default>false</default>
+        <label>Neutral (+1)</label>
+    </customValue>
+    <customValue>
+        <fullName>Slight disadvantage</fullName>
+        <default>false</default>
+        <label>Slight disadvantage (0)</label>
+    </customValue>
+    <customValue>
+        <fullName>Buildcorp disadvantage</fullName>
+        <default>false</default>
+        <label>Buildcorp disadvantage (-5)</label>
+    </customValue>
+    <masterLabel>Proposed Competitors</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

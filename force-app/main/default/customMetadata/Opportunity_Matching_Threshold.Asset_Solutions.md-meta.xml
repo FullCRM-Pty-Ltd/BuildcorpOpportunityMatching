@@ -11,6 +11,14 @@
         <value xsi:type="xsd:double">50.0</value>
     </values>
     <values>
+        <field>Questions_Required__c</field>
+        <value xsi:type="xsd:double">5.0</value>
+    </values>
+    <values>
+        <field>Record_Type__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
         <field>Value_1_Score__c</field>
         <value xsi:type="xsd:double">8.0</value>
     </values>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>Used by the OpportunityMatchListController Apex class. This CMDT establishes a minimum threshold percent of fields that must be matched by a particular Opportunity to be considered a &apos;match&apos; for the original Opportunity. Differs per Business Unit.</description>
+    <description>Used by the OpportunityMatchListController Apex class. This CMDT establishes a minimum threshold percent of fields that must be matched by a particular Opportunity to be considered a &#39;match&#39; for the original Opportunity. Differs per Business Unit.</description>
     <label>Opportunity Matching / Scoring</label>
     <pluralLabel>Opportunity Matching / Scoring</pluralLabel>
     <visibility>Public</visibility>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ECI_Negotiation_Assessment_Score__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( Conversion_Process__c , 
+&quot;Completed&quot;, 3, 
+&quot;Open&quot;, -5, -5) + 
+
+CASE( Consultancy_Agreement__c  , 
+&quot;Yes&quot;, 5, 
+&quot;No&quot;, -5,-5) + 
+
+CASE( QS_picklist__c, 
+&quot;Known&quot;, 3, 
+&quot;Unknown&quot;, 0,0) + 
+
+CASE( Client_Experience__c , 
+&quot;High - educated client&quot;, 3, 
+&quot;Mid&quot;, 2, 
+&quot;Low - 1st time&quot;, 1,0) + 
+
+CASE( Need_for_ECI__c , 
+&quot;Time&quot;, 3, 
+&quot;Live Environment&quot;, 3,
+&quot;Evolving Design&quot;, 3, 
+&quot;All of the Above&quot;, 5,  
+&quot;None of the Above&quot;, 0,0) + 
+
+CASE( Start_Date__c , 
+&quot;Timeframe defined&quot;, 3,0) + 
+
+CASE( Consultant_ECI_engagement__c , 
+&quot;Yes&quot;, 3, 
+&quot;No&quot;, 0,0) + 
+
+CASE(  QS_ECI_experience__c , 
+&quot;Yes&quot;, 3, 
+&quot;No&quot;, 0,0) + 
+
+
+CASE( Experience_in_similar_projects__c , 
+&quot;High&quot;, 3, 
+&quot;Mid&quot;, 2, 
+&quot;Low&quot;, 1,0) + 
+
+CASE(   Available_team__c , 
+&quot;Yes&quot;, 3, 
+&quot;No&quot;, 0,0) + 
+
+CASE(   Supportive_of_ECI__c , 
+&quot;All&quot;, 5,
+&quot;Most&quot;, 3,
+&quot;Neutral&quot;, 0, 
+&quot;Minority&quot;, -5,-5)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>ECI Assessment Score</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

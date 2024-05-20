@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Great</fullName>
+        <default>false</default>
+        <label>Great (+5)</label>
+    </customValue>
+    <customValue>
+        <fullName>Above average</fullName>
+        <default>false</default>
+        <label>Above average (+2)</label>
+    </customValue>
+    <customValue>
+        <fullName>Average</fullName>
+        <default>false</default>
+        <label>Average (+1)</label>
+    </customValue>
+    <customValue>
+        <fullName>Below average</fullName>
+        <default>false</default>
+        <label>Below average (0)</label>
+    </customValue>
+    <customValue>
+        <fullName>Poor</fullName>
+        <default>false</default>
+        <label>Poor (-5)</label>
+    </customValue>
+    <masterLabel>History of Relationships / Tender Result</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

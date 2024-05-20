@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Architect_Weighted_Rel__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+    Architect_Weighted_Rel_Score__c &gt; 5, 
+    &#39;Key Promoter&#39;, 
+    IF(
+        AND(Architect_Weighted_Rel_Score__c &lt;= 5, Architect_Weighted_Rel_Score__c &gt;= 3), 
+        &#39;Promoter&#39;, 
+        IF(
+            AND(Architect_Weighted_Rel_Score__c &lt; 3, Architect_Weighted_Rel_Score__c &gt;= 0), 
+            &#39;Neutral&#39;, 
+            IF(
+                Architect_Weighted_Rel_Score__c &lt; 0, 
+                &#39;Detractor&#39;, 
+                NULL
+            )
+        )
+    )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Architect Weighted Rel</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

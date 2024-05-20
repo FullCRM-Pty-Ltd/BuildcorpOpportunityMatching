@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_Comment</fullName>
+    <active>true</active>
+    <description>Make Reason_Comment field mandatory if opportunity is Closed / Lost</description>
+    <errorConditionFormula>AND(ISPICKVAL( StageName , &quot;Closed Lost&quot;) ,  ISBLANK( Lost_Comment__c )  )</errorConditionFormula>
+    <errorDisplayField>Lost_Comment__c</errorDisplayField>
+    <errorMessage>Please provide a comment on why this Opportunity was lost</errorMessage>
+</ValidationRule>

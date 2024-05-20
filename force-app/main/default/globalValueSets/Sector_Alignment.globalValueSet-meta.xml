@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Strong recent experience</fullName>
+        <default>false</default>
+        <label>Strong recent experience (+5)</label>
+    </customValue>
+    <customValue>
+        <fullName>Historical experience</fullName>
+        <default>false</default>
+        <label>Historical experience (+2)</label>
+    </customValue>
+    <customValue>
+        <fullName>Team experience</fullName>
+        <default>false</default>
+        <label>Team experience (+1)</label>
+    </customValue>
+    <customValue>
+        <fullName>Limited</fullName>
+        <default>false</default>
+        <label>Limited (0)</label>
+    </customValue>
+    <customValue>
+        <fullName>No experience</fullName>
+        <default>false</default>
+        <label>No experience (-5)</label>
+    </customValue>
+    <masterLabel>Sector Alignment</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_Lost</fullName>
+    <active>true</active>
+    <description>Make Reason Lost field mandatory if opportunity is Closed / Lost</description>
+    <errorConditionFormula>AND(ISPICKVAL( StageName , &quot;Closed Lost&quot;) ,  ISPICKVAL( Lost_Reason__c , &quot;&quot;) )</errorConditionFormula>
+    <errorDisplayField>Lost_Reason__c</errorDisplayField>
+    <errorMessage>Please enter the primary reason this Opportunity was not won</errorMessage>
+</ValidationRule>

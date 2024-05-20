@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Interiors_Vic_opportunities_via_markets</fullName>
+    <columns>Services__c</columns>
+    <columns>Sector__c</columns>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>OPPORTUNITY.AMOUNT</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Buildcorp_Business_Unit__c</field>
+        <operation>equals</operation>
+        <value>Interiors VIC</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>notContain</operation>
+        <value>Under Construction,Complete,Closed Lost</value>
+    </filters>
+    <label>Interiors Vic opportunities via markets</label>
+</ListView>

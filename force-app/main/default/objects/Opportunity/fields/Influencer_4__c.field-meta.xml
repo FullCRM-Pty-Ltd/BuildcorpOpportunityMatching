@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Influencer_4__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Who is the interior design firm working on the project</description>
+    <externalId>false</externalId>
+    <label>Influencer 4</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Opportunities (Influencer 4)</relationshipLabel>
+    <relationshipName>Opportunities5</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

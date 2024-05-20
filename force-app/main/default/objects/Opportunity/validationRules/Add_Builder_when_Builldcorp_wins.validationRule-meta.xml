@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Add_Builder_when_Builldcorp_wins</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+OR(ISPICKVAL(StageName, &quot;Under Construction&quot;),ISPICKVAL(StageName,&quot;Complete&quot;)),
+ISBLANK(Lost_to__c))</errorConditionFormula>
+    <errorMessage>Please add the winning Buildcorp Business Unit as the Builder</errorMessage>
+</ValidationRule>

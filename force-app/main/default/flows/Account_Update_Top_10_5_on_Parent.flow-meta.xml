@@ -1,0 +1,727 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <assignments>
+        <name>Add_Value_to_Full_List</name>
+        <label>Add Value to Full List</label>
+        <locationX>1128</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>fullChildTop10List</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fullChildTop10ListUpdated</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>loopChildTop10</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>loopChildTop10RemoveFirst</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Is_the_First_Value_in_the_Full_List</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Top_10_List</name>
+        <label>Assign Top 10 List</label>
+        <locationX>908</locationX>
+        <locationY>539</locationY>
+        <assignmentItems>
+            <assignToReference>loopChildTop10</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Child_Accounts.Top_10_Partner__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_the_First_Value_in_the_Full_List</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Copy_1_of_Remove_First_Top_10_Value</name>
+        <label>Remove First Top 10 Value</label>
+        <locationX>270</locationX>
+        <locationY>2429</locationY>
+        <assignmentItems>
+            <assignToReference>childTop5</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>childTop5RemoveFirst</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Copy_1_of_Is_the_First_Value_In_the_Parent_List</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Copy_1_of_Update_Parent_Record_Variable</name>
+        <label>Update Parent Record Variable</label>
+        <locationX>490</locationX>
+        <locationY>2129</locationY>
+        <assignmentItems>
+            <assignToReference>ParentAccount.Top_5_Target__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>updatedParentTop5</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>parentTop5</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>ParentAccount.Top_5_Target__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_1_of_Remove_First_Top_10_Value</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Copy_2_of_Remove_First_Top_10_Value</name>
+        <label>Copy 2 of Remove First Top 10 Value</label>
+        <locationX>600</locationX>
+        <locationY>1805</locationY>
+        <assignmentItems>
+            <assignToReference>childTop10</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>childTop10RemoveFirst</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_the_First_Value_In_the_Parent_List</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Copy_2_of_Update_Parent_Record_Variable</name>
+        <label>Copy 2 of Update Parent Record Variable</label>
+        <locationX>930</locationX>
+        <locationY>1313</locationY>
+        <assignmentItems>
+            <assignToReference>ParentAccount.Top_10_Partner__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>updatedParentTop10</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>parentTop10</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>ParentAccount.Top_10_Partner__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_2_of_Remove_First_Top_10_Value</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Copy_3_of_Remove_First_Top_10_Value</name>
+        <label>Copy 3 of Remove First Top 10 Value</label>
+        <locationX>270</locationX>
+        <locationY>1613</locationY>
+        <assignmentItems>
+            <assignToReference>childTop5</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>childTop5RemoveFirst</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_2_of_Remove_First_Top_10_Value</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Copy_3_of_Update_Parent_Record_Variable</name>
+        <label>Copy 3 of Update Parent Record Variable</label>
+        <locationX>490</locationX>
+        <locationY>1421</locationY>
+        <assignmentItems>
+            <assignToReference>ParentAccount.Top_5_Target__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>updatedParentTop5</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>parentTop5</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>ParentAccount.Top_5_Target__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_3_of_Remove_First_Top_10_Value</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Copy_Field_Values_to_Variables</name>
+        <label>Copy Field Values to Variables</label>
+        <locationX>600</locationX>
+        <locationY>1097</locationY>
+        <assignmentItems>
+            <assignToReference>childTop10</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Top_10_Partner__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>childTop5</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Top_5_Target__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>parentTop10</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Parent.Top_10_Partner__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>parentTop5</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Parent.Top_5_Target__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ParentAccount.Id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.ParentId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_2_of_Is_the_First_Value_In_the_Parent_List</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Remove_First_Top_10_Value</name>
+        <label>Remove First Top 10 Value</label>
+        <locationX>600</locationX>
+        <locationY>2687</locationY>
+        <assignmentItems>
+            <assignToReference>childTop10</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>childTop10RemoveFirst</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Is_the_First_Value_In_the_Parent_List</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Remove_First_Value</name>
+        <label>Remove First Value</label>
+        <locationX>864</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>loopChildTop10</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>loopChildTop10RemoveFirst</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Is_the_First_Value_in_the_Full_List</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Parent_Record_Variable</name>
+        <label>Update Parent Record Variable</label>
+        <locationX>930</locationX>
+        <locationY>2021</locationY>
+        <assignmentItems>
+            <assignToReference>ParentAccount.Top_10_Partner__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>updatedParentTop10</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>parentTop10</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>ParentAccount.Top_10_Partner__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Remove_First_Top_10_Value</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Copy_1_of_Is_the_First_Value_In_the_Parent_List</name>
+        <label>(Top 5) Is the First Value In the Parent List?</label>
+        <locationX>270</locationX>
+        <locationY>2021</locationY>
+        <defaultConnector>
+            <targetReference>Copy_1_of_Update_Parent_Record_Variable</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Copy_1_of_No_More_Values</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>childTop5</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>childTop5</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Parent_Account</targetReference>
+            </connector>
+            <label>No More Values</label>
+        </rules>
+        <rules>
+            <name>Copy_1_of_Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>parentTop5</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <elementReference>childTop5FirstValue</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_1_of_Remove_First_Top_10_Value</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Copy_1_of_Top_5_Is_the_First_Value_In_the_Parent_List</name>
+        <label>Copy 1 of (Top 5) Is the First Value In the Parent List?</label>
+        <locationX>270</locationX>
+        <locationY>1313</locationY>
+        <defaultConnector>
+            <targetReference>Copy_3_of_Update_Parent_Record_Variable</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Copy_2_of_No_More_Values</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>childTop5</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>childTop5</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_1_of_Update_Parent_Account</targetReference>
+            </connector>
+            <label>Copy 2 of No More Values</label>
+        </rules>
+        <rules>
+            <name>Copy_2_of_Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>parentTop5</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <elementReference>childTop5FirstValue</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_3_of_Remove_First_Top_10_Value</targetReference>
+            </connector>
+            <label>Copy 2 of Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Copy_2_of_Is_the_First_Value_In_the_Parent_List</name>
+        <label>Is the First Value In the Child List?</label>
+        <locationX>600</locationX>
+        <locationY>1205</locationY>
+        <defaultConnector>
+            <targetReference>Copy_2_of_Update_Parent_Record_Variable</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Copy_3_of_No_More_Values</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>parentTop10</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>parentTop10</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_1_of_Top_5_Is_the_First_Value_In_the_Parent_List</targetReference>
+            </connector>
+            <label>No More Values</label>
+        </rules>
+        <rules>
+            <name>Copy_3_of_Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>parentTop10</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <elementReference>childTop10FirstValue</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_2_of_Remove_First_Top_10_Value</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_the_First_Value_in_the_Full_List</name>
+        <label>Is the First Value in the Full List?</label>
+        <locationX>908</locationX>
+        <locationY>647</locationY>
+        <defaultConnector>
+            <targetReference>Add_Value_to_Full_List</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>No_Items_Left</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>loopChildTop10</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>loopChildTop10</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Loop_Child_Accounts</targetReference>
+            </connector>
+            <label>No Items Left</label>
+        </rules>
+        <rules>
+            <name>YesF</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>fullChildTop10List</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <elementReference>loopChildTop10FirstValue</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Remove_First_Value</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_the_First_Value_In_the_Parent_List</name>
+        <label>Is the First Value In the Parent List?</label>
+        <locationX>600</locationX>
+        <locationY>1913</locationY>
+        <defaultConnector>
+            <targetReference>Update_Parent_Record_Variable</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>No_More_Values</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>childTop10</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>childTop10</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_1_of_Is_the_First_Value_In_the_Parent_List</targetReference>
+            </connector>
+            <label>No More Values</label>
+        </rules>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>parentTop10</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <elementReference>childTop10FirstValue</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Remove_First_Top_10_Value</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>childTop10FirstValue</name>
+        <dataType>String</dataType>
+        <expression>IF(CONTAINS({!childTop10}, &#39;;&#39;),
+LEFT({!childTop10},FIND(&#39;;&#39;,{!childTop10})),
+{!childTop10}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>childTop10RemoveFirst</name>
+        <dataType>String</dataType>
+        <expression>IF(CONTAINS({!childTop10}, &#39;;&#39;),
+RIGHT({!childTop10}, LEN({!childTop10})-FIND(&#39;;&#39;,{!childTop10})),
+null)</expression>
+    </formulas>
+    <formulas>
+        <name>childTop5FirstValue</name>
+        <dataType>String</dataType>
+        <expression>IF(CONTAINS({!childTop5}, &#39;;&#39;),
+LEFT({!childTop5},FIND(&#39;;&#39;,{!childTop5})),
+{!childTop5}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>childTop5RemoveFirst</name>
+        <dataType>String</dataType>
+        <expression>IF(CONTAINS({!childTop5}, &#39;;&#39;),
+RIGHT({!childTop5}, LEN({!childTop5})-FIND(&#39;;&#39;,{!childTop5})),
+null)</expression>
+    </formulas>
+    <formulas>
+        <name>fullChildTop10ListUpdated</name>
+        <dataType>String</dataType>
+        <expression>IF(RIGHT({!fullChildTop10List},1) = &#39;;&#39; || ISBLANK({!fullChildTop10List}),
+{!fullChildTop10List}+{!loopChildTop10FirstValue},
+{!fullChildTop10List}+&#39;;&#39;+{!loopChildTop10FirstValue}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>loopChildTop10FirstValue</name>
+        <dataType>String</dataType>
+        <expression>IF(CONTAINS({!loopChildTop10}, &#39;;&#39;),
+LEFT({!loopChildTop10},FIND(&#39;;&#39;,{!loopChildTop10})),
+{!loopChildTop10}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>loopChildTop10RemoveFirst</name>
+        <dataType>String</dataType>
+        <expression>IF(CONTAINS({!loopChildTop10}, &#39;;&#39;),
+RIGHT({!loopChildTop10}, LEN({!loopChildTop10})-FIND(&#39;;&#39;,{!loopChildTop10})),
+null)</expression>
+    </formulas>
+    <formulas>
+        <name>updatedParentTop10</name>
+        <dataType>String</dataType>
+        <expression>IF(RIGHT({!parentTop10},1) = &#39;;&#39; || ISBLANK({!parentTop10}),
+{!parentTop10}+{!childTop10FirstValue},
+{!parentTop10}+&#39;;&#39;+{!childTop10FirstValue}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>updatedParentTop5</name>
+        <dataType>String</dataType>
+        <expression>IF(RIGHT({!parentTop5},1) = &#39;;&#39; || ISBLANK({!parentTop5}),
+{!parentTop5}+{!childTop5FirstValue},
+{!parentTop5}+&#39;;&#39;+{!childTop5FirstValue}
+)</expression>
+    </formulas>
+    <interviewLabel>Account - Update Top 10 and 5 on Parnet {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Account - Update Top 10/5 on Parent</label>
+    <loops>
+        <name>Loop_Child_Accounts</name>
+        <label>Loop Child Accounts</label>
+        <locationX>600</locationX>
+        <locationY>431</locationY>
+        <collectionReference>Get_Child_Accounts_of_Parent</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Assign_Top_10_List</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Copy_Field_Values_to_Variables</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Child_Accounts_of_Parent</name>
+        <label>Get Child Accounts of Parent</label>
+        <locationX>600</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_Child_Accounts</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ParentId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ParentId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Account</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Copy_1_of_Update_Parent_Account</name>
+        <label>Copy 1 of Update Parent Account</label>
+        <locationX>50</locationX>
+        <locationY>1421</locationY>
+        <connector>
+            <targetReference>Copy_3_of_Remove_First_Top_10_Value</targetReference>
+        </connector>
+        <inputReference>ParentAccount</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Parent_Account</name>
+        <label>Update Parent Account</label>
+        <locationX>50</locationX>
+        <locationY>2129</locationY>
+        <inputReference>ParentAccount</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>474</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Child_Accounts_of_Parent</targetReference>
+        </connector>
+        <filterFormula>OR(
+AND(
+ISNEW(),
+!ISBLANK({!$Record.ParentId}),
+OR(
+!ISBLANK({!$Record.Top_10_Partner__c}),
+!ISBLANK({!$Record.Top_5_Target__c})
+)
+),
+AND(
+!ISBLANK({!$Record.ParentId}),
+OR(
+ISCHANGED({!$Record.ParentId}),
+ISCHANGED({!$Record.Top_10_Partner__c}),
+ISCHANGED({!$Record.Top_5_Target__c})
+)
+)
+)</filterFormula>
+        <object>Account</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Draft</status>
+    <variables>
+        <name>childAccountsTop10</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>childTop10</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>childTop5</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>fullChildTop10List</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>loopChildTop10</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>ParentAccount</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+    <variables>
+        <name>parentTop10</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>parentTop5</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

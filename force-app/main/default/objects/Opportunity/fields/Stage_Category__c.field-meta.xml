@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stage_Category__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISPICKVAL(StageName, &quot;Speculative&quot;), &quot;1 - Research&quot;,
+IF(ISPICKVAL(StageName, &quot;Potential&quot;), &quot;1 - Research&quot;, 
+IF(ISPICKVAL(StageName, &quot;Capability Statement&quot;), &quot;2 - Marketing&quot;, 
+IF(ISPICKVAL(StageName, &quot;EOI&quot;), &quot;2 - Marketing&quot;, 
+IF(ISPICKVAL(StageName, &quot;Budget Advice&quot;), &quot;2 - Marketing&quot;, 
+IF(ISPICKVAL(StageName, &quot;Confirmed&quot;), &quot;3 - Tendering&quot;, 
+IF(ISPICKVAL(StageName, &quot;Tender&quot;), &quot;3 - Tendering&quot;, 
+IF(ISPICKVAL(StageName, &quot;Post Tender&quot;), &quot;3 - Tendering&quot;, 
+IF(ISPICKVAL(StageName, &quot;Cost Plan&quot;), &quot;3 - Tendering&quot;, 
+IF(ISPICKVAL(StageName, &quot;ECI Stage&quot;), &quot;4 - Conversion&quot;, 
+IF(ISPICKVAL(StageName, &quot;Negotiation&quot;), &quot;4 - Conversion&quot;, 
+IF(ISPICKVAL(StageName, &quot;Preferred&quot;), &quot;4 - Conversion&quot;, 
+IF(ISPICKVAL(StageName, &quot;Under Construction&quot;), &quot;5 - Construction&quot;, 
+IF(ISPICKVAL(StageName, &quot;Complete&quot;), &quot;6 - Complete&quot;, 
+IF(ISPICKVAL(StageName, &quot;Closed Lost&quot;), &quot;6 - Complete&quot;, 
+IF(ISPICKVAL(StageName, &quot;Closed Withdrawn&quot;), &quot;6 - Complete&quot;, 
+&quot; &quot; 
+))))))))))))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Stage Category</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

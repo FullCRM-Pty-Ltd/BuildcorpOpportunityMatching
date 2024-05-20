@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Amount_Range__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(Amount &gt;= 100000000, &quot;06 &gt; $100M&quot;,
+IF(Amount &gt;= 50000000, &quot;05 $50M - $100M&quot;,
+IF(Amount &gt;= 30000000, &quot;04 $30M - $50M&quot;,
+IF(Amount &gt;= 15000000, &quot;03 $15M - $30M&quot;,
+IF(Amount &gt;= 5000000, &quot;02 $5M - $15M&quot;,
+IF(Amount &lt; 5000000, &quot;01 &lt; $5M&quot;, &quot;&quot;))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Amount Range</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Competitor_3_Win_Percentage__c</fullName>
+    <externalId>false</externalId>
+    <formula>(Competitor_3__r.Won_Count__c + Competitor_3__r.Under_Costruction_Count__c) / (Competitor_3__r.Won_Count__c + Competitor_3__r.Under_Costruction_Count__c + Competitor_3__r.Lost_Count__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Competitor 3 Win %</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

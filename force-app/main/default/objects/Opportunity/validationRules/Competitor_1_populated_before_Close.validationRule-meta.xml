@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Competitor_1_populated_before_Close</fullName>
+    <active>false</active>
+    <description>Competitor 1 must be a Buildcorp Account and the field must be populated before the Opportunity can be closed</description>
+    <errorConditionFormula>OR(NOT(CONTAINS(Competitor_1__r.Name, &quot;Buildcorp&quot;)),NOT(CONTAINS(Competitor_1__r.Name, &quot;Euroline&quot;)))</errorConditionFormula>
+    <errorMessage>Competitor 1 must be a Buildcorp or Euroline Account.</errorMessage>
+</ValidationRule>

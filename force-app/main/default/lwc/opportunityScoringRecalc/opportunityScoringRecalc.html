@@ -1,0 +1,240 @@
+<template>
+    <lightning-card title={cardTitle} icon-name="standard:custom">
+        <div if:true={isError} style="margin-left:1em">
+            <p style="font-size:14px"><b>Error</b></p>
+            <br/>
+            <p>An error has occurred. Please forward this entire message onto your Salesforce administrator:</p>
+            <br/>
+            <div style="font-style:italic">
+                <p><b>User ID:</b> {userId}</p>
+                <p><b>Business Unit:</b> {businessUnit}</p>
+                <p><b>Record Type:</b> {selectedRT}</p>
+                <p><b>Selected Market(s):</b> {selectedMarkets}</p>
+                <p><b>Error:</b> {errorMessage}</p>
+            </div>
+            <div slot="actions">
+                <span style="display: flex;
+                justify-content: center;
+                align-items: center;margin-top:1em">
+                    <lightning-button label="Restart" variant="brand" onclick={restartProcess} style="padding-right:5px"></lightning-button>
+                </span>
+            </div>
+        </div>
+        <div if:true={businessUnitSelection} style="margin-left:1em">
+            <p>Please select the <b>Record Type</b> and <b>Business Unit</b> of the Opportunities for which you'd like to adjust the scoring weights:</p> 
+            <br/>
+                <lightning-record-edit-form object-api-name="Opportunity" onsubmit={handleRTSubmit}>
+                    <div class="slds-grid slds-gutters" style="width:fit-content">
+                        <div class="slds-col">
+                            <lightning-radio-group 
+                            name="recordTypes"
+                            label="Record Type"
+                            options={oppRecordTypes}
+                            required
+                            type="radio"
+                            onchange={handleRTChange}
+                            ></lightning-radio-group>
+                        </div>
+                        <div class="slds-col">
+                            <lightning-radio-group 
+                            name="businessUnits"
+                            label="Business Unit"
+                            options={businessUnitOptions}
+                            required
+                            type="radio"
+                            onchange={handleBUChange}
+                            ></lightning-radio-group>
+                        </div>
+                        <br/>
+                    </div>
+                    <lightning-button variant="brand" type="submit" label="Save"></lightning-button>
+                </lightning-record-edit-form>
+        </div>
+        <!--<div if:true={businessUnitSelection} style="margin-left:1em">
+            <p>Please select which <b>Business Unit</b> you'd like to adjust the scoring weights for:</p> 
+            <br/>
+            <div style="width:10%"> 
+                <lightning-record-edit-form object-api-name="User" record-id={userId} onsubmit={handleBUSubmit}>
+                    <lightning-input-field field-name="Business_Unit__c" variant="label-hidden" required></lightning-input-field>
+                    <br/>
+                    <lightning-button variant="brand" type="submit" label="Save"></lightning-button>
+                </lightning-record-edit-form>
+            </div>
+        </div>
+        <div if:true={recordTypeSelection} style="margin-left:1em">
+            <p>Please select which type of <b>{businessUnit}</b> Opportunities you'd like to adjust the scoring weights for:</p>
+            <div style="width:10%"> 
+                <lightning-record-edit-form object-api-name="Opportunity" onsubmit={handleRTSubmit}>
+                    <br/>
+                    <lightning-radio-group 
+                        name="recordTypes"
+                        label="Record Types"
+                        options={oppRecordTypes}
+                        required
+                        type="radio"
+                        onchange={handleRTChange}
+                        variant="label-hidden"
+                        ></lightning-radio-group>
+                    <br/>
+                    <lightning-button variant="brand" type="submit" label="Next"></lightning-button>
+                </lightning-record-edit-form>
+            </div>
+        </div>-->
+        <div if:true={marketSelection} style="margin-left:1em">
+            <div if:true={isLoading}>
+                <div class="slds-spinner_inline spinner-padding" style="height:300px">
+                    <lightning-spinner class="spins" variant="brand" alternative-text="Loading" size="medium"></lightning-spinner>
+                    <div style="text-align:center">
+                        <b>Loading...</b>
+                    </div>
+                </div>
+            </div>
+            <div if:false={isLoading}>
+                <p>You may choose to select one or more markets to apply this new weighting to.</p> <br/>
+                <p>The scoring for all {businessUnit} {recordTypeName} Opportunities that belong to these markets will be recalculated.</p><br/>
+                <p>If you choose not to select a market, the updated scoring will be applied to all {businessUnit} {recordTypeName} Opportunities.</p>
+                <br/>
+                <lightning-dual-listbox
+                    name="Market"
+                    label="Market"
+                    options={marketOptions}
+                    source-label="Available"
+                    selected-label="Selected"
+                    disable-reordering
+                    onchange={handleMarketSelection}>
+                </lightning-dual-listbox>
+                <br/>
+                <p>Currently updating all Opportunities where:</p>
+                <p><b>Business Unit</b> = {businessUnit}</p>
+                <p><b>Record Type</b> = {selectedRT}</p>
+                <p if:false={noMarketsSelected}><b>Market</b> is one of the following: {selectedMarkets}</p>
+                <br/>
+                <div style="color:red;font-size:14px">
+                    <p if:true={oppOne}><b>1 Opportunity will be updated.</b></p>
+                    <p if:false={oppOne}><b>{oppsToUpdate} Opportunities will be updated.</b></p>
+                </div>
+                <div slot="actions">
+                    <span style="display: flex;
+                    justify-content: center;
+                    align-items: center;margin-top:1em">
+                        <lightning-button label="Change Record Type/Business Unit" onclick={handleBackToRT} style="padding-right:5px"></lightning-button>
+                        <lightning-button variant="brand" label="Next" onclick={handleMarketSave}></lightning-button>
+                    </span>
+                </div>
+            </div>
+            
+        </div>
+        <div if:true={weightingSelection}>
+            <div if:true={isLoading}>
+                <div class="slds-spinner_inline spinner-padding" style="height:300px">
+                    <lightning-spinner class="spins" variant="brand" alternative-text="Loading" size="medium"></lightning-spinner>
+                    <div style="text-align:center">
+                        <b>Loading...</b>
+                    </div>
+                </div>
+            </div>
+            <div if:false={isLoading}>
+                <div style="margin-left:1em">
+                        <table class="slds-table slds-table--bordered">
+                            <thead>
+                                <tr class="slds-text-title--caps">
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Field Name">Field Name</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Current Weighting">Current Weighting</div>
+                                    </th>
+                                    <th scope="col" width="20%">
+                                        <div class="slds-truncate" title="New Weighting">New Weighting</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template for:each={fieldList} for:item="field" for:index="i">
+                                    <template for:each={field.value} for:item="value">
+                                        <tr key={field.key}>
+                                            <td>
+                                                {value.label}
+                                                <span style="position:relative; top:-6px;">
+                                                    &nbsp;&nbsp;<lightning-helptext content={value.values}></lightning-helptext>
+                                                </span>
+                                            </td>
+                                            <td if:false={noMarketsSelected}>
+                                                <table class="slds-table slds-table--bordered slds-table_fixed-layout">
+                                                    <tr class="slds-text-title--caps">
+                                                        <template for:each={selectedMarkets} for:item="market">
+                                                            <th scope="col" key={market}>
+                                                                <div class="slds-truncate" title={market}>{market}</div>
+                                                            </th>
+                                                        </template>
+                                                    </tr>
+                                                    <tr>
+                                                        <template for:each={value.Multipliers} for:item="multiplier" for:index="j">
+                                                            <!--<template for:each={field.value} for:item="value">
+                                                                <td key={market}>
+                                                                    {value.market}
+                                                                </td>
+                                                            </template>-->
+                                                            <td key={multiplier}>
+                                                                {multiplier}x
+                                                            </td>
+                                                        </template>
+                                                    </tr>
+                                                </table>
+                                                <!--{value.multiplier}x-->
+                                                <!--<template for:each={field.value} for:item="value">
+                                                    {value.multiplier}
+                                                </template>-->
+                                            </td>
+                                            <td if:true={noMarketsSelected}>
+                                                {value.multiplier}x
+                                            </td>
+                                            <td width="20%">
+                                                <!--<template for:each={field.value} for:item="value">-->
+                                                    <lightning-combobox
+                                                    name="Multiplier"
+                                                    label="Multiplier"
+                                                    options={weightingOptions}
+                                                    variant="label-hidden"
+                                                    data-id={i}
+                                                    placeholder="No Change"
+                                                    id={i}
+                                                    value="1"
+                                                    onchange={handleMultiplierChange}>
+                                                    </lightning-combobox>
+                                                    <!--value={value.multiplier}-->
+                                                <!--</template>-->
+                                            </td>
+                                        </tr>
+                                    </template>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div slot="actions">
+                        <span style="display: flex;
+                        justify-content: center;
+                        align-items: center;margin-top:1em">
+                            <lightning-button label="Change Sector" onclick={handleBackToMarket} style="padding-right:5px"></lightning-button>
+                            <lightning-button variant="brand" label="Update Opportunities" onclick={handleWeightingSave}></lightning-button>
+                        </span>
+                    </div>
+                </div>
+                
+        </div>
+        <div if:true={finalScreen} style="margin-left:1em;font-size:14px">
+            <p><b>Success!</b></p>
+            <br/>
+            <p>Your selected weightings have been updated.</p>
+            <p if:true={oneOppUpdated}><b>1</b> Opportunity has been updated.</p>
+            <p if:false={oneOppUpdated}><b>{oppsUpdated}</b> Opportunities have been updated.</p>
+            <div slot="actions">
+                <span style="display: flex;
+                justify-content: center;
+                align-items: center;margin-top:1em">
+                    <lightning-button label="Restart" onclick={restartProcess} style="padding-right:5px"></lightning-button>
+                </span>
+            </div>
+        </div>
+    </lightning-card>
+</template>

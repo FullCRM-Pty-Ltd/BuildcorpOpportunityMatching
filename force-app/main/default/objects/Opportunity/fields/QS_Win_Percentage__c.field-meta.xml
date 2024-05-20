@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QS_Win_Percentage__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+ISBLANK(QS__c), 0,
+
+IF(
+QS__r.Won_Count__c = 0, 0,
+
+(QS__r.Won_Count__c +  QS__r.Under_Costruction_Count__c) / (QS__r.Won_Count__c +  QS__r.Under_Costruction_Count__c +  QS__r.Lost_Count__c )))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>QS Win %</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

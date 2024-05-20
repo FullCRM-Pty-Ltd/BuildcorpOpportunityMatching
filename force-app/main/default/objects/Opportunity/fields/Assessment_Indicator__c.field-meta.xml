@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Assessment_Indicator__c</fullName>
+    <description>This is used for reporting &amp; list view purposes.  It looks at the Opportunity Record Type and uses the appropriate Assessment Indicator.</description>
+    <externalId>false</externalId>
+    <formula>CASE( RecordType.Name , &quot;Tender&quot;,  Tender_Assesment_Indicator__c , &quot;ECI / Negotiation&quot;,  ECI_Negotiation_Assesment_Indicator__c ,&quot;Weak&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Assessment Indicator</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

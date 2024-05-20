@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sector__c</fullName>
+    <externalId>false</externalId>
+    <label>Market</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Buildcorp_Business_Unit__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Accommodation</fullName>
+                <default>false</default>
+                <label>Accommodation</label>
+            </value>
+            <value>
+                <fullName>Aged Care</fullName>
+                <default>false</default>
+                <label>Aged Care</label>
+            </value>
+            <value>
+                <fullName>Child Care</fullName>
+                <default>false</default>
+                <label>Child Care</label>
+            </value>
+            <value>
+                <fullName>Commercial</fullName>
+                <default>false</default>
+                <label>Commercial</label>
+            </value>
+            <value>
+                <fullName>Community</fullName>
+                <default>false</default>
+                <label>Community</label>
+            </value>
+            <value>
+                <fullName>Education</fullName>
+                <default>false</default>
+                <label>Education</label>
+            </value>
+            <value>
+                <fullName>Health</fullName>
+                <default>false</default>
+                <label>Health</label>
+            </value>
+            <value>
+                <fullName>Health and Clinical</fullName>
+                <default>false</default>
+                <label>Health and Clinical</label>
+            </value>
+            <value>
+                <fullName>Heritage</fullName>
+                <default>false</default>
+                <label>Heritage</label>
+            </value>
+            <value>
+                <fullName>Hospitality</fullName>
+                <default>false</default>
+                <label>Hospitality</label>
+            </value>
+            <value>
+                <fullName>Hotels</fullName>
+                <default>false</default>
+                <label>Hotels</label>
+            </value>
+            <value>
+                <fullName>Industrial</fullName>
+                <default>false</default>
+                <label>Industrial</label>
+            </value>
+            <value>
+                <fullName>Infrastructure</fullName>
+                <default>false</default>
+                <label>Infrastructure</label>
+            </value>
+            <value>
+                <fullName>Residential</fullName>
+                <default>false</default>
+                <label>Residential</label>
+            </value>
+            <value>
+                <fullName>Retail</fullName>
+                <default>false</default>
+                <label>Retail</label>
+            </value>
+            <value>
+                <fullName>Sporting</fullName>
+                <default>false</default>
+                <label>Sporting</label>
+            </value>
+            <value>
+                <fullName>Sporting Facilities</fullName>
+                <default>false</default>
+                <label>Sporting Facilities</label>
+            </value>
+            <value>
+                <fullName>Student Housing</fullName>
+                <default>false</default>
+                <label>Student Housing</label>
+            </value>
+            <value>
+                <fullName>Workplace</fullName>
+                <default>false</default>
+                <label>Workplace</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Contracting</controllingFieldValue>
+            <controllingFieldValue>Interiors NSW</controllingFieldValue>
+            <controllingFieldValue>Asset Solutions</controllingFieldValue>
+            <controllingFieldValue>Euroline</controllingFieldValue>
+            <controllingFieldValue>Interiors QLD</controllingFieldValue>
+            <controllingFieldValue>Interiors VIC</controllingFieldValue>
+            <valueName>Aged Care</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Contracting</controllingFieldValue>
+            <controllingFieldValue>Interiors NSW</controllingFieldValue>
+            <controllingFieldValue>Asset Solutions</controllingFieldValue>
+            <controllingFieldValue>Euroline</controllingFieldValue>
+            <controllingFieldValue>Interiors QLD</controllingFieldValue>
+            <controllingFieldValue>Interiors VIC</controllingFieldValue>
+            <valueName>Child Care</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Contracting</controllingFieldValue>
+            <controllingFieldValue>Interiors NSW</controllingFieldValue>
+            <controllingFieldValue>Asset Solutions</controllingFieldValue>
+            <controllingFieldValue>Euroline</controllingFieldValue>
+            <controllingFieldValue>Interiors QLD</controllingFieldValue>
+            <controllingFieldValue>Interiors VIC</controllingFieldValue>
+            <valueName>Commercial</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Contracting</controllingFieldValue>
+            <controllingFieldValue>Interiors NSW</controllingFieldValue>
+            <controllingFieldValue>Asset Solutions</controllingFieldValue>
+            <controllingFieldValue>Euroline</controllingFieldValue>
+            <controllingFieldValue>Interiors QLD</controllingFieldValue>
+            <controllingFieldValue>Interiors VIC</controllingFieldValue>
+            <valueName>Education</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Contracting</controllingFieldValue>
+            <controllingFieldValue>Interiors NSW</controllingFieldValue>
+            <controllingFieldValue>Asset Solutions</controllingFieldValue>
+            <controllingFieldValue>Euroline</controllingFieldValue>
+            <controllingFieldValue>Interiors QLD</controllingFieldValue>
+            <controllingFieldValue>Interiors VIC</controllingFieldValue>
+            <valueName>Health</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Contracting</controllingFieldValue>
+            <controllingFieldValue>Interiors NSW</controllingFieldValue>
+            <controllingFieldValue>Asset Solutions</controllingFieldValue>
+            <controllingFieldValue>Euroline</controllingFieldValue>
+            <controllingFieldValue>Interiors QLD</controllingFieldValue>
+            <controllingFieldValue>Interiors VIC</controllingFieldValue>
+            <valueName>Heritage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Contracting</controllingFieldValue>
+            <controllingFieldValue>Interiors NSW</controllingFieldValue>
+            <controllingFieldValue>Asset Solutions</controllingFieldValue>
+            <controllingFieldValue>Euroline</controllingFieldValue>
+            <controllingFieldValue>Interiors QLD</controllingFieldValue>
+            <controllingFieldValue>Interiors VIC</controllingFieldValue>
+            <valueName>Hospitality</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Contracting</controllingFieldValue>
+            <controllingFieldValue>Interiors NSW</controllingFieldValue>
+            <controllingFieldValue>Asset Solutions</controllingFieldValue>
+            <controllingFieldValue>Euroline</controllingFieldValue>
+            <controllingFieldValue>Interiors QLD</controllingFieldValue>
+            <controllingFieldValue>Interiors VIC</controllingFieldValue>
+            <valueName>Hotels</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Contracting</controllingFieldValue>
+            <controllingFieldValue>Interiors NSW</controllingFieldValue>
+            <controllingFieldValue>Asset Solutions</controllingFieldValue>
+            <controllingFieldValue>Euroline</controllingFieldValue>
+            <controllingFieldValue>Interiors QLD</controllingFieldValue>
+            <controllingFieldValue>Interiors VIC</controllingFieldValue>
+            <valueName>Industrial</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Contracting</controllingFieldValue>
+            <controllingFieldValue>Interiors NSW</controllingFieldValue>
+            <controllingFieldValue>Asset Solutions</controllingFieldValue>
+            <controllingFieldValue>Euroline</controllingFieldValue>
+            <controllingFieldValue>Interiors QLD</controllingFieldValue>
+            <controllingFieldValue>Interiors VIC</controllingFieldValue>
+            <valueName>Infrastructure</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Contracting</controllingFieldValue>
+            <controllingFieldValue>Interiors NSW</controllingFieldValue>
+            <controllingFieldValue>Asset Solutions</controllingFieldValue>
+            <controllingFieldValue>Euroline</controllingFieldValue>
+            <controllingFieldValue>Interiors QLD</controllingFieldValue>
+            <controllingFieldValue>Interiors VIC</controllingFieldValue>
+            <valueName>Residential</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Contracting</controllingFieldValue>
+            <controllingFieldValue>Interiors NSW</controllingFieldValue>
+            <controllingFieldValue>Asset Solutions</controllingFieldValue>
+            <controllingFieldValue>Euroline</controllingFieldValue>
+            <controllingFieldValue>Interiors QLD</controllingFieldValue>
+            <controllingFieldValue>Interiors VIC</controllingFieldValue>
+            <valueName>Retail</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Contracting</controllingFieldValue>
+            <controllingFieldValue>Interiors NSW</controllingFieldValue>
+            <controllingFieldValue>Asset Solutions</controllingFieldValue>
+            <controllingFieldValue>Euroline</controllingFieldValue>
+            <controllingFieldValue>Interiors QLD</controllingFieldValue>
+            <controllingFieldValue>Interiors VIC</controllingFieldValue>
+            <valueName>Sporting Facilities</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Contracting</controllingFieldValue>
+            <controllingFieldValue>Interiors NSW</controllingFieldValue>
+            <controllingFieldValue>Asset Solutions</controllingFieldValue>
+            <controllingFieldValue>Euroline</controllingFieldValue>
+            <controllingFieldValue>Interiors QLD</controllingFieldValue>
+            <controllingFieldValue>Interiors VIC</controllingFieldValue>
+            <valueName>Student Housing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Contracting</controllingFieldValue>
+            <controllingFieldValue>Interiors NSW</controllingFieldValue>
+            <controllingFieldValue>Asset Solutions</controllingFieldValue>
+            <controllingFieldValue>Euroline</controllingFieldValue>
+            <controllingFieldValue>Interiors QLD</controllingFieldValue>
+            <controllingFieldValue>Interiors VIC</controllingFieldValue>
+            <valueName>Workplace</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

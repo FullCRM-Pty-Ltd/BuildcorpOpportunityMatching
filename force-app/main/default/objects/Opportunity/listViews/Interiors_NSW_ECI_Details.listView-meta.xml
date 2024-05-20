@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Interiors_NSW_ECI_Details</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>OPPORTUNITY.AMOUNT</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <columns>Lost_to__c</columns>
+    <columns>Contract_Type__c</columns>
+    <columns>Meters_Square__c</columns>
+    <columns>Fit_out_cost_per_m2__c</columns>
+    <columns>Fit_out_Density__c</columns>
+    <columns>Private_vs_Public__c</columns>
+    <columns>BIM_project__c</columns>
+    <columns>Sustainability_Target__c</columns>
+    <columns>WELL_Project__c</columns>
+    <columns>Live_Environment__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Buildcorp_Business_Unit__c</field>
+        <operation>equals</operation>
+        <value>Interiors NSW</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>notEqual</operation>
+        <value>Closed Withdrawn</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Opportunity.ECI_Negotiation</value>
+    </filters>
+    <label>Interiors NSW ECI Details</label>
+</ListView>

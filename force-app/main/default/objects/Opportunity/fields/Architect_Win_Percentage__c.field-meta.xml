@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Architect_Win_Percentage__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+ISBLANK(Architect__c), 0,
+
+IF(
+Architect__r.Won_Count__c = 0, 0,
+
+(Architect__r.Won_Count__c + Architect__r.Under_Costruction_Count__c) / (Architect__r.Won_Count__c + Architect__r.Under_Costruction_Count__c +  Architect__r.Lost_Count__c )))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Architect Win %</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

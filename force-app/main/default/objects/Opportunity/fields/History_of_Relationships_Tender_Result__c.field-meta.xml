@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>History_of_Relationships_Tender_Result__c</fullName>
-    <description>History  of these relationships and tendering results</description>
+    <description>History  of these relationships and tendering results </description>
     <externalId>false</externalId>
-    <inlineHelpText>History  of these relationships and tendering results</inlineHelpText>
+    <inlineHelpText>History  of these relationships and tendering results </inlineHelpText>
     <label>History of Relationships / Tender Result</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>

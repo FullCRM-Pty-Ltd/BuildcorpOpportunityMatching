@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Architect__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The architect working on the project</description>
+    <externalId>false</externalId>
+    <label>Architect</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Opportunities (Architect)</relationshipLabel>
+    <relationshipName>Opportunities2</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

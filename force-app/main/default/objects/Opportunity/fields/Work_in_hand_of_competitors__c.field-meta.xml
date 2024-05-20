@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Work_in_hand_of_competitors__c</fullName>
+    <externalId>false</externalId>
+    <label>Work in hand of competitors</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Less than Buildcorp</fullName>
+                <default>false</default>
+                <label>Less than Buildcorp</label>
+            </value>
+            <value>
+                <fullName>Equal to Buildcorp</fullName>
+                <default>false</default>
+                <label>Equal to Buildcorp</label>
+            </value>
+            <value>
+                <fullName>More than Buildcorp</fullName>
+                <default>false</default>
+                <label>More than Buildcorp</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

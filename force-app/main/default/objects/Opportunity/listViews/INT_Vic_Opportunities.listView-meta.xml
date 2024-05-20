@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>INT_Vic_Opportunities</fullName>
+    <columns>Priority__c</columns>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>OPPORTUNITY.AMOUNT</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>Tender_start_date__c</columns>
+    <columns>Tender_close_date__c</columns>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <columns>Client__c</columns>
+    <columns>Project_Manager__c</columns>
+    <columns>Architect__c</columns>
+    <columns>QS__c</columns>
+    <columns>Influencer__c</columns>
+    <columns>OPPORTUNITY.RECORDTYPE</columns>
+    <columns>Relationship__c</columns>
+    <columns>Assessment__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Buildcorp_Business_Unit__c</field>
+        <operation>equals</operation>
+        <value>Interiors VIC</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.CLOSED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>Interiors Vic All Open</label>
+    <sharedTo>
+        <group>Group</group>
+        <roleAndSubordinates>General_Manager_Interiors_VIC</roleAndSubordinates>
+    </sharedTo>
+</ListView>

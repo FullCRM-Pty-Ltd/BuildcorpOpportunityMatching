@@ -1,0 +1,1657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <apiVersion>60.0</apiVersion>
+    <dynamicChoiceSets>
+        <name>Architect_Opportunity_Relationship_Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true" />
+        <object xsi:nil="true" />
+        <picklistField>Architect_Opportunity_Relationship__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Architect_Weighting</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true" />
+        <object xsi:nil="true" />
+        <picklistField>Architect_Weighting__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Client_Opportunity_Relationship_Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true" />
+        <object xsi:nil="true" />
+        <picklistField>Client_Opportunity_Rel__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Client_Weighting</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true" />
+        <object xsi:nil="true" />
+        <picklistField>Client_Weighting__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Influencer_2_Opportunity_Relationship_Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true" />
+        <object xsi:nil="true" />
+        <picklistField>Influencer_2_Opportunity_Relationship__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Influencer_2_Weighting</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true" />
+        <object xsi:nil="true" />
+        <picklistField>Influencer_2_Weighting__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Influencer_3_Opportunity_Relationship_Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true" />
+        <object xsi:nil="true" />
+        <picklistField>Influencer_3_Opportunity_Relationship__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Influencer_3_Weighting</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true" />
+        <object xsi:nil="true" />
+        <picklistField>Influencer_3_Weighting__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Influencer_4_Opportunity_Relationship_Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true" />
+        <object xsi:nil="true" />
+        <picklistField>Influencer_4_Opportunity_Relationship__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Influencer_4_Weighting</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true" />
+        <object xsi:nil="true" />
+        <picklistField>Influencer_4_Weighting__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Influencer_Opportunity_Relationship_Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true" />
+        <object xsi:nil="true" />
+        <picklistField>Influencer_Opportunity_Relationship__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Influencer_Weighting</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true" />
+        <object xsi:nil="true" />
+        <picklistField>Influencer_Weighting__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>PM_Weighting_Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true" />
+        <object xsi:nil="true" />
+        <picklistField>Project_Manager_Weighting__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Project_Manager_Opportunity_Relationship_Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true" />
+        <object xsi:nil="true" />
+        <picklistField>Project_Manager_Opportunity_Relationship__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>QS_Opportunity_Relationship_Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true" />
+        <object xsi:nil="true" />
+        <picklistField>QS_Opportunity_Relationship__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>QS_Weighting</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true" />
+        <object xsi:nil="true" />
+        <picklistField>QS_Weighting__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <environments>Default</environments>
+    <formulas>
+        <name>Architect_Opp_Rel_Default_Value</name>
+        <dataType>String</dataType>
+        <expression>IF(NOT(ISPICKVAL({!recordId.Architect_Opportunity_Relationship__c}, &#39;&#39;)), TEXT({!recordId.Architect_Opportunity_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Interiors NSW&#39;), TEXT({!recordId.Architect__r.Int_NSW_Relationship__c}), 
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Queensland&#39;), TEXT({!recordId.Architect__r.Int_QLD_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Victoria&#39;), TEXT({!recordId.Architect__r.Int_Vic_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Contracting&#39;), TEXT({!recordId.Architect__r.Contracting_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Asset Solutions&#39;), TEXT({!recordId.Architect__r.Asset_Sol_Relationship__c}), null
+)
+)
+)
+)
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Architect_Weighted_Relationship_Display</name>
+        <dataType>String</dataType>
+        <expression>IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Interiors NSW&#39;), TEXT({!recordId.Architect__r.Int_NSW_Relationship__c}), 
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Queensland&#39;), TEXT({!recordId.Architect__r.Int_QLD_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Victoria&#39;), TEXT({!recordId.Architect__r.Int_Vic_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Contracting&#39;), TEXT({!recordId.Architect__r.Contracting_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Asset Solutions&#39;), TEXT({!recordId.Architect__r.Asset_Sol_Relationship__c}), null
+)
+)
+)
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Architect_Weighted_Relationship_Score_Formula</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+{!Architect_Opportunity_Relationship} = &#39;Super Key&#39;, 5,
+    IF(
+{!Architect_Opportunity_Relationship} = &#39;Key&#39;, 2,
+        IF(
+{!Architect_Opportunity_Relationship} = &#39;Developing&#39; , 1,
+            IF(
+{!Architect_Opportunity_Relationship} = &#39;New&#39;, 0, 
+                -5
+            )
+        )
+    )
+) *
+IF(
+{!Architect_Weighting_Picklist} = &#39;Anti&#39;, 0.5,
+    IF(
+{!Architect_Weighting_Picklist} = &#39;Typical&#39;, 1,
+        IF(
+{!Architect_Weighting_Picklist} = &#39;Key&#39;, 3, 
+            null
+        )
+    )
+)</expression>
+        <scale>1</scale>
+    </formulas>
+    <formulas>
+        <name>Architect_Weighting_Default_Value</name>
+        <dataType>String</dataType>
+        <expression>IF(NOT(ISPICKVAL({!recordId.Architect_Weighting__c}, &#39;&#39;)), TEXT({!recordId.Architect_Weighting__c}), &#39;Typical&#39;)</expression>
+    </formulas>
+    <formulas>
+        <name>Client_Account_Relationship_Display</name>
+        <dataType>String</dataType>
+        <expression>IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Interiors NSW&#39;), TEXT({!recordId.Client__r.Int_NSW_Relationship__c}), 
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Queensland&#39;), TEXT({!recordId.Client__r.Int_QLD_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Victoria&#39;), TEXT({!recordId.Client__r.Int_Vic_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Contracting&#39;), TEXT({!recordId.Client__r.Contracting_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Asset Solutions&#39;), TEXT({!recordId.Client__r.Asset_Sol_Relationship__c}), null
+)
+)
+)
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Client_Opp_Rel_Default_Value</name>
+        <dataType>String</dataType>
+        <expression>IF(NOT(ISPICKVAL({!recordId.Client_Opportunity_Rel__c}, &#39;&#39;)), TEXT({!recordId.Client_Opportunity_Rel__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Interiors NSW&#39;), TEXT({!recordId.Client__r.Int_NSW_Relationship__c}), 
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Queensland&#39;), TEXT({!recordId.Client__r.Int_QLD_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Victoria&#39;), TEXT({!recordId.Client__r.Int_Vic_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Contracting&#39;), TEXT({!recordId.Client__r.Contracting_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Asset Solutions&#39;), TEXT({!recordId.Client__r.Asset_Sol_Relationship__c}), null
+)
+)
+)
+)
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Client_Weighted_Relationship_Score_Formula</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+{!Client_Opportunity_Relationship} = &#39;Super Key&#39;, 5,
+    IF(
+{!Client_Opportunity_Relationship} = &#39;Key&#39;, 2,
+        IF(
+{!Client_Opportunity_Relationship} = &#39;Developing&#39; , 1,
+            IF(
+{!Client_Opportunity_Relationship} = &#39;New&#39;, 0, 
+                -5
+            )
+        )
+    )
+) *
+IF(
+{!Client_Weighting_Picklist} = &#39;Anti&#39;, 0.5,
+    IF(
+{!Client_Weighting_Picklist} = &#39;Typical&#39;, 1,
+        IF(
+{!Client_Weighting_Picklist} = &#39;Key&#39;, 3, 
+            null
+        )
+    )
+)</expression>
+        <scale>1</scale>
+    </formulas>
+    <formulas>
+        <name>Client_Weighting_Default_Value</name>
+        <dataType>String</dataType>
+        <expression>IF(NOT(ISPICKVAL({!recordId.Client_Weighting__c}, &#39;&#39;)), TEXT({!recordId.Client_Weighting__c}), &#39;Typical&#39;)</expression>
+    </formulas>
+    <formulas>
+        <name>Influencer_2_Opp_Rel_Default_Value</name>
+        <dataType>String</dataType>
+        <expression>IF(NOT(ISPICKVAL({!recordId.Influencer_2_Opportunity_Relationship__c}, &#39;&#39;)), TEXT({!recordId.Influencer_2_Opportunity_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Interiors NSW&#39;), TEXT({!recordId.Influencer_2__r.Int_NSW_Relationship__c}), 
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Queensland&#39;), TEXT({!recordId.Influencer_2__r.Int_QLD_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Victoria&#39;), TEXT({!recordId.Influencer_2__r.Int_Vic_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Contracting&#39;), TEXT({!recordId.Influencer_2__r.Contracting_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Asset Solutions&#39;), TEXT({!recordId.Influencer_2__r.Asset_Sol_Relationship__c}), null
+)
+)
+)
+)
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Influencer_2_Weighted_Relationship_Display</name>
+        <dataType>String</dataType>
+        <expression>IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Interiors NSW&#39;), TEXT({!recordId.Influencer_2__r.Int_NSW_Relationship__c}), 
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Queensland&#39;), TEXT({!recordId.Influencer_2__r.Int_QLD_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Victoria&#39;), TEXT({!recordId.Influencer_2__r.Int_Vic_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Contracting&#39;), TEXT({!recordId.Influencer_2__r.Contracting_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Asset Solutions&#39;), TEXT({!recordId.Influencer_2__r.Asset_Sol_Relationship__c}), null
+)
+)
+)
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Influencer_2_Weighted_Relationship_Formula</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+{!Influencer_2_Opportunity_Rel} = &#39;Super Key&#39;, 5,
+    IF(
+{!Influencer_2_Opportunity_Rel} = &#39;Key&#39;, 2,
+        IF(
+{!Influencer_2_Opportunity_Rel} = &#39;Developing&#39; , 1,
+            IF(
+{!Influencer_2_Opportunity_Rel} = &#39;New&#39;, 0, 
+                -5
+            )
+        )
+    )
+) *
+IF(
+{!Influencer_2_Weighting_Picklist} = &#39;Anti&#39;, 0.5,
+    IF(
+{!Influencer_2_Weighting_Picklist} = &#39;Typical&#39;, 1,
+        IF(
+{!Influencer_2_Weighting_Picklist} = &#39;Key&#39;, 3, 
+            null
+        )
+    )
+)</expression>
+        <scale>1</scale>
+    </formulas>
+    <formulas>
+        <name>Influencer_2_Weighting_Default_Value</name>
+        <dataType>String</dataType>
+        <expression>IF(NOT(ISPICKVAL({!recordId.Influencer_2_Weighting__c}, &#39;&#39;)), TEXT({!recordId.Influencer_2_Weighting__c}), &#39;Typical&#39;)</expression>
+    </formulas>
+    <formulas>
+        <name>Influencer_3_Opp_Rel_Default_Value</name>
+        <dataType>String</dataType>
+        <expression>IF(NOT(ISPICKVAL({!recordId.Influencer_3_Opportunity_Relationship__c}, &#39;&#39;)), TEXT({!recordId.Influencer_3_Opportunity_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Interiors NSW&#39;), TEXT({!recordId.Influencer_3__r.Int_NSW_Relationship__c}), 
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Queensland&#39;), TEXT({!recordId.Influencer_3__r.Int_QLD_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Victoria&#39;), TEXT({!recordId.Influencer_3__r.Int_Vic_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Contracting&#39;), TEXT({!recordId.Influencer_3__r.Contracting_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Asset Solutions&#39;), TEXT({!recordId.Influencer_3__r.Asset_Sol_Relationship__c}), null
+)
+)
+)
+)
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Influencer_3_Relationship_Display</name>
+        <dataType>String</dataType>
+        <expression>IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Interiors NSW&#39;), TEXT({!recordId.Influencer_3__r.Int_NSW_Relationship__c}), 
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Queensland&#39;), TEXT({!recordId.Influencer_3__r.Int_QLD_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Victoria&#39;), TEXT({!recordId.Influencer_3__r.Int_Vic_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Contracting&#39;), TEXT({!recordId.Influencer_3__r.Contracting_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Asset Solutions&#39;), TEXT({!recordId.Influencer_3__r.Asset_Sol_Relationship__c}), null
+)
+)
+)
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Influencer_3_Weighted_Relationship_Formula</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+{!Influencer_3_Opportunity_Rel} = &#39;Super Key&#39;, 5,
+    IF(
+{!Influencer_3_Opportunity_Rel} = &#39;Key&#39;, 2,
+        IF(
+{!Influencer_3_Opportunity_Rel} = &#39;Developing&#39; , 1,
+            IF(
+{!Influencer_3_Opportunity_Rel} = &#39;New&#39;, 0, 
+                -5
+            )
+        )
+    )
+) *
+IF(
+{!Influencer_3_Weighting_Picklist} = &#39;Anti&#39;, 0.5,
+    IF(
+{!Influencer_3_Weighting_Picklist} = &#39;Typical&#39;, 1,
+        IF(
+{!Influencer_3_Weighting_Picklist} = &#39;Key&#39;, 3, 
+            null
+        )
+    )
+)</expression>
+        <scale>1</scale>
+    </formulas>
+    <formulas>
+        <name>Influencer_3_Weighting_Default_Value</name>
+        <dataType>String</dataType>
+        <expression>IF(NOT(ISPICKVAL({!recordId.Influencer_3_Weighting__c}, &#39;&#39;)), TEXT({!recordId.Influencer_3_Weighting__c}), &#39;Typical&#39;)</expression>
+    </formulas>
+    <formulas>
+        <name>Influencer_4_Opp_Rel_Default_Value</name>
+        <dataType>String</dataType>
+        <expression>IF(NOT(ISPICKVAL({!recordId.Influencer_4_Opportunity_Relationship__c}, &#39;&#39;)), TEXT({!recordId.Influencer_4_Opportunity_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Interiors NSW&#39;), TEXT({!recordId.Influencer_4__r.Int_NSW_Relationship__c}), 
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Queensland&#39;), TEXT({!recordId.Influencer_4__r.Int_QLD_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Victoria&#39;), TEXT({!recordId.Influencer_4__r.Int_Vic_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Contracting&#39;), TEXT({!recordId.Influencer_4__r.Contracting_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Asset Solutions&#39;), TEXT({!recordId.Influencer_4__r.Asset_Sol_Relationship__c}), null
+)
+)
+)
+)
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Influencer_4_Weighted_Relationship_Display</name>
+        <dataType>String</dataType>
+        <expression>IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Interiors NSW&#39;), TEXT({!recordId.Influencer_4__r.Int_NSW_Relationship__c}), 
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Queensland&#39;), TEXT({!recordId.Influencer_4__r.Int_QLD_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Victoria&#39;), TEXT({!recordId.Influencer_4__r.Int_Vic_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Contracting&#39;), TEXT({!recordId.Influencer_4__r.Contracting_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Asset Solutions&#39;), TEXT({!recordId.Influencer_4__r.Asset_Sol_Relationship__c}), null
+)
+)
+)
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Influencer_4_Weighted_Relationship_Formula</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+{!Influencer_4_Opportunity_Rel} = &#39;Super Key&#39;, 5,
+    IF(
+{!Influencer_4_Opportunity_Rel} = &#39;Key&#39;, 2,
+        IF(
+{!Influencer_4_Opportunity_Rel} = &#39;Developing&#39; , 1,
+            IF(
+{!Influencer_4_Opportunity_Rel} = &#39;New&#39;, 0, 
+                -5
+            )
+        )
+    )
+) *
+IF(
+{!Influencer_4_Weighting_Picklist} = &#39;Anti&#39;, 0.5,
+    IF(
+{!Influencer_4_Weighting_Picklist} = &#39;Typical&#39;, 1,
+        IF(
+{!Influencer_4_Weighting_Picklist} = &#39;Key&#39;, 3, 
+            null
+        )
+    )
+)</expression>
+        <scale>1</scale>
+    </formulas>
+    <formulas>
+        <name>Influencer_4_Weighting_Default_Value</name>
+        <dataType>String</dataType>
+        <expression>IF(NOT(ISPICKVAL({!recordId.Influencer_4_Weighting__c}, &#39;&#39;)), TEXT({!recordId.Influencer_4_Weighting__c}), &#39;Typical&#39;)</expression>
+    </formulas>
+    <formulas>
+        <name>Influencer_Opp_Rel_Default_Value</name>
+        <dataType>String</dataType>
+        <expression>IF(NOT(ISPICKVAL({!recordId.Influencer_Opportunity_Relationship__c}, &#39;&#39;)), TEXT({!recordId.Influencer_Opportunity_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Interiors NSW&#39;), TEXT({!recordId.Influencer__r.Int_NSW_Relationship__c}), 
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Queensland&#39;), TEXT({!recordId.Influencer__r.Int_QLD_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Victoria&#39;), TEXT({!recordId.Influencer__r.Int_Vic_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Contracting&#39;), TEXT({!recordId.Influencer__r.Contracting_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Asset Solutions&#39;), TEXT({!recordId.Influencer__r.Asset_Sol_Relationship__c}), null
+)
+)
+)
+)
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Influencer_Weighted_Relationship_Display</name>
+        <dataType>String</dataType>
+        <expression>IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Interiors NSW&#39;), TEXT({!recordId.Influencer__r.Int_NSW_Relationship__c}), 
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Queensland&#39;), TEXT({!recordId.Influencer__r.Int_QLD_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Victoria&#39;), TEXT({!recordId.Influencer__r.Int_Vic_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Contracting&#39;), TEXT({!recordId.Influencer__r.Contracting_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Asset Solutions&#39;), TEXT({!recordId.Influencer__r.Asset_Sol_Relationship__c}), null
+)
+)
+)
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Influencer_Weighted_Relationship_Score_Formula</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+{!Influencer_Opportunity_Rel} = &#39;Super Key&#39;, 5,
+    IF(
+{!Influencer_Opportunity_Rel} = &#39;Key&#39;, 2,
+        IF(
+{!Influencer_Opportunity_Rel} = &#39;Developing&#39; , 1,
+            IF(
+{!Influencer_Opportunity_Rel} = &#39;New&#39;, 0, 
+                -5
+            )
+        )
+    )
+) *
+IF(
+{!Influencer_Weighting_Picklist} = &#39;Anti&#39;, 0.5,
+    IF(
+{!Influencer_Weighting_Picklist} = &#39;Typical&#39;, 1,
+        IF(
+{!Influencer_Weighting_Picklist} = &#39;Key&#39;, 3, 
+            null
+        )
+    )
+)</expression>
+        <scale>1</scale>
+    </formulas>
+    <formulas>
+        <name>Influencer_Weighting_Default_Value</name>
+        <dataType>String</dataType>
+        <expression>IF(NOT(ISPICKVAL({!recordId.Influencer_Weighting__c}, &#39;&#39;)), TEXT({!recordId.Influencer_Weighting__c}), &#39;Typical&#39;)</expression>
+    </formulas>
+    <formulas>
+        <name>PM_Account_Relationship_Display</name>
+        <dataType>String</dataType>
+        <expression>IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Interiors NSW&#39;), TEXT({!recordId.Project_Manager__r.Int_NSW_Relationship__c}), 
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Queensland&#39;), TEXT({!recordId.Project_Manager__r.Int_QLD_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Victoria&#39;), TEXT({!recordId.Project_Manager__r.Int_Vic_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Contracting&#39;), TEXT({!recordId.Project_Manager__r.Contracting_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Asset Solutions&#39;), TEXT({!recordId.Project_Manager__r.Asset_Sol_Relationship__c}), null
+)
+)
+)
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>PM_Opp_Rel_Default_Value</name>
+        <dataType>String</dataType>
+        <expression>IF(NOT(ISPICKVAL({!recordId.Project_Manager_Opportunity_Relationship__c}, &#39;&#39;)), TEXT({!recordId.Project_Manager_Opportunity_Relationship__c}), 
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Interiors NSW&#39;), TEXT({!recordId.Project_Manager__r.Int_NSW_Relationship__c}), 
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Queensland&#39;), TEXT({!recordId.Project_Manager__r.Int_QLD_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Victoria&#39;), TEXT({!recordId.Project_Manager__r.Int_Vic_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Contracting&#39;), TEXT({!recordId.Project_Manager__r.Contracting_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Asset Solutions&#39;), TEXT({!recordId.Project_Manager__r.Asset_Sol_Relationship__c}), null
+)
+)
+)
+)
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>PM_Weighted_Relationship_Score_Formula</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+{!Project_Manager_Opportunity_Relationship} = &#39;Super Key&#39;, 5,
+    IF(
+{!Project_Manager_Opportunity_Relationship} = &#39;Key&#39;, 2,
+        IF(
+{!Project_Manager_Opportunity_Relationship} = &#39;Developing&#39; , 1,
+            IF(
+{!Project_Manager_Opportunity_Relationship} = &#39;New&#39;, 0, 
+                -5
+            )
+        )
+    )
+) *
+IF(
+{!Project_Manager_Weighting_Picklist} = &#39;Anti&#39;, 0.5,
+    IF(
+{!Project_Manager_Weighting_Picklist} = &#39;Typical&#39;, 1,
+        IF(
+{!Project_Manager_Weighting_Picklist} = &#39;Key&#39;, 3, 
+            null
+        )
+    )
+)</expression>
+        <scale>1</scale>
+    </formulas>
+    <formulas>
+        <name>PM_Weighting_Default_Value</name>
+        <dataType>String</dataType>
+        <expression>IF(NOT(ISPICKVAL({!recordId.Project_Manager_Weighting__c}, &#39;&#39;)), TEXT({!recordId.Project_Manager_Weighting__c}), &#39;Typical&#39;)</expression>
+    </formulas>
+    <formulas>
+        <name>QS_Opp_Rel_Default_Value</name>
+        <dataType>String</dataType>
+        <expression>IF(NOT(ISPICKVAL({!recordId.QS_Opportunity_Relationship__c}, &#39;&#39;)), TEXT({!recordId.QS_Opportunity_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Interiors NSW&#39;), TEXT({!recordId.QS__r.Int_NSW_Relationship__c}), 
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Queensland&#39;), TEXT({!recordId.QS__r.Int_QLD_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Victoria&#39;), TEXT({!recordId.QS__r.Int_Vic_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Contracting&#39;), TEXT({!recordId.QS__r.Contracting_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Asset Solutions&#39;), TEXT({!recordId.QS__r.Asset_Sol_Relationship__c}), null
+)
+)
+)
+)
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>QS_Weighted_Relationship_Display</name>
+        <dataType>String</dataType>
+        <expression>IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Interiors NSW&#39;), TEXT({!recordId.QS__r.Int_NSW_Relationship__c}), 
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Queensland&#39;), TEXT({!recordId.QS__r.Int_QLD_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Victoria&#39;), TEXT({!recordId.QS__r.Int_Vic_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Contracting&#39;), TEXT({!recordId.QS__r.Contracting_Relationship__c}),
+IF(
+ISPICKVAL({!recordId.Buildcorp_Business_Unit__c}, &#39;Asset Solutions&#39;), TEXT({!recordId.QS__r.Asset_Sol_Relationship__c}), null
+)
+)
+)
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>QS_Weighted_Relationship_Score_Formula</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+{!QS_Opportunity_Relationship} = &#39;Super Key&#39;, 5,
+    IF(
+{!QS_Opportunity_Relationship} = &#39;Key&#39;, 2,
+        IF(
+{!QS_Opportunity_Relationship} = &#39;Developing&#39; , 1,
+            IF(
+{!QS_Opportunity_Relationship} = &#39;New&#39;, 0, 
+                -5
+            )
+        )
+    )
+) *
+IF(
+{!QS_Weighting_Picklist} = &#39;Anti&#39;, 0.5,
+    IF(
+{!QS_Weighting_Picklist} = &#39;Typical&#39;, 1,
+        IF(
+{!QS_Weighting_Picklist} = &#39;Key&#39;, 3, 
+            null
+        )
+    )
+)</expression>
+        <scale>1</scale>
+    </formulas>
+    <formulas>
+        <name>QS_Weighting_Default_Value</name>
+        <dataType>String</dataType>
+        <expression>IF(NOT(ISPICKVAL({!recordId.QS_Weighting__c}, &#39;&#39;)), TEXT({!recordId.QS_Weighting__c}), &#39;Typical&#39;)</expression>
+    </formulas>
+    <interviewLabel>Opportunity Relationship - Update {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Opportunity Relationship - Update</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordUpdates>
+        <name>Update_Opportunity_Relationships</name>
+        <label>Update Opportunity Relationships</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Architect_Opportunity_Relationship__c</field>
+            <value>
+                <elementReference>Architect_Opportunity_Relationship</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Architect_Weighted_Rel_Score__c</field>
+            <value>
+                <elementReference>Architect_Weighted_Relationship_Score_Formula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Architect_Weighting__c</field>
+            <value>
+                <elementReference>Architect_Weighting_Picklist</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Architect__c</field>
+            <value>
+                <elementReference>Architect_Relationship.recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Client_Opportunity_Rel__c</field>
+            <value>
+                <elementReference>Client_Opportunity_Relationship</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Client_Weighted_Rel_Score__c</field>
+            <value>
+                <elementReference>Client_Weighted_Relationship_Score_Formula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Client_Weighting__c</field>
+            <value>
+                <elementReference>Client_Weighting_Picklist</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Client__c</field>
+            <value>
+                <elementReference>Client_Relationship.recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Influencer_2_Opportunity_Relationship__c</field>
+            <value>
+                <elementReference>Influencer_2_Opportunity_Rel</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Influencer_2_Weighted_Rel_Score__c</field>
+            <value>
+                <elementReference>Influencer_2_Weighted_Relationship_Formula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Influencer_2_Weighting__c</field>
+            <value>
+                <elementReference>Influencer_2_Weighting_Picklist</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Influencer_2__c</field>
+            <value>
+                <elementReference>Influencer_2_Relationship.recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Influencer_3_Opportunity_Relationship__c</field>
+            <value>
+                <elementReference>Influencer_3_Opportunity_Rel</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Influencer_3_Weighted_Rel_Score__c</field>
+            <value>
+                <elementReference>Influencer_3_Weighted_Relationship_Formula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Influencer_3_Weighting__c</field>
+            <value>
+                <elementReference>Influencer_3_Weighting_Picklist</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Influencer_3__c</field>
+            <value>
+                <elementReference>Influencer_3_Relationship.recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Influencer_4_Opportunity_Relationship__c</field>
+            <value>
+                <elementReference>Influencer_4_Opportunity_Rel</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Influencer_4_Weighted_Rel_Score__c</field>
+            <value>
+                <elementReference>Influencer_4_Weighted_Relationship_Formula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Influencer_4_Weighting__c</field>
+            <value>
+                <elementReference>Influencer_4_Weighting_Picklist</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Influencer_4__c</field>
+            <value>
+                <elementReference>Influencer_4_Relationship.recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Influencer_Opportunity_Relationship__c</field>
+            <value>
+                <elementReference>Influencer_Opportunity_Rel</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Influencer_Weighted_Rel_Score__c</field>
+            <value>
+                <elementReference>Influencer_Weighted_Relationship_Score_Formula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Influencer_Weighting__c</field>
+            <value>
+                <elementReference>Influencer_Weighting_Picklist</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Influencer__c</field>
+            <value>
+                <elementReference>Influencer_Relationship.recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Project_Manager_Opportunity_Relationship__c</field>
+            <value>
+                <elementReference>Project_Manager_Opportunity_Relationship</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Project_Manager_Weighted_Rel_Score__c</field>
+            <value>
+                <elementReference>PM_Weighted_Relationship_Score_Formula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Project_Manager_Weighting__c</field>
+            <value>
+                <elementReference>Project_Manager_Weighting_Picklist</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Project_Manager__c</field>
+            <value>
+                <elementReference>Project_Manager_Relationship.recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>QS_Opportunity_Relationship__c</field>
+            <value>
+                <elementReference>QS_Opportunity_Relationship</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>QS_Weighted_Rel_Score__c</field>
+            <value>
+                <elementReference>QS_Weighted_Relationship_Score_Formula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>QS_Weighting__c</field>
+            <value>
+                <elementReference>QS_Weighting_Picklist</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>QS__c</field>
+            <value>
+                <elementReference>QS_Relationship.recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Score_Justification__c</field>
+            <value>
+                <elementReference>Score_Justification</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <screens>
+        <name>Update_Relationships</name>
+        <label>Update Relationships</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <backButtonLabel>Exit</backButtonLabel>
+        <connector>
+            <targetReference>Update_Opportunity_Relationships</targetReference>
+        </connector>
+        <fields>
+            <name>Update_Opportunity_Relationships_Display</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;strong style=&quot;font-size: 20px;&quot;&gt;Assess Opportunity Relationships&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Update_Relationships_Section1</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>Update_Relationships_Section1_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Client_Relationship</name>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value>
+                            <stringValue>AccountId</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Client</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Opportunity</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>maxValues</name>
+                        <value>
+                            <numberValue>1.0</numberValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>recordId.Client__c</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                </fields>
+                <fields>
+                    <name>Client_Account_Relationship_Score_Total</name>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 11px;&quot;&gt;Business Unit &lt;/strong&gt;&lt;strong style=&quot;font-size: 11px; color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;Rel&#39;ship: {!Client_Account_Relationship_Display}&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <fields>
+                    <name>Client_Opportunity_Relationship</name>
+                    <choiceReferences>Client_Opportunity_Relationship_Picklist</choiceReferences>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Client_Opp_Rel_Default_Value</elementReference>
+                    </defaultValue>
+                    <fieldText>Client Opportunity Rel</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <isRequired>false</isRequired>
+                </fields>
+                <fields>
+                    <name>Client_Weighting_Picklist</name>
+                    <choiceReferences>Client_Weighting</choiceReferences>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Client_Weighting_Default_Value</elementReference>
+                    </defaultValue>
+                    <fieldText>Client Influence</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <isRequired>false</isRequired>
+                </fields>
+                <fields>
+                    <name>Client_Weighted_Rel_Score</name>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 11px;&quot;&gt;Client Weighted Rel Score: &lt;/strong&gt;&lt;strong style=&quot;color: rgb(255, 0, 0); font-size: 11px;&quot;&gt;{!Client_Weighted_Relationship_Score_Formula}&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>3</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>Update_Relationships_Section1_Column2</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Project_Manager_Relationship</name>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value>
+                            <stringValue>AccountId</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Project Manager</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Opportunity</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>maxValues</name>
+                        <value>
+                            <numberValue>1.0</numberValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>recordId.Project_Manager__c</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                </fields>
+                <fields>
+                    <name>Project_Manager_Account_Relationship_Score_Total</name>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 11px; background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;Business Unit Rel&#39;ship: {!PM_Account_Relationship_Display}&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <fields>
+                    <name>Project_Manager_Opportunity_Relationship</name>
+                    <choiceReferences>Project_Manager_Opportunity_Relationship_Picklist</choiceReferences>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>PM_Opp_Rel_Default_Value</elementReference>
+                    </defaultValue>
+                    <fieldText>PM Opportunity Rel</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <isRequired>false</isRequired>
+                </fields>
+                <fields>
+                    <name>Project_Manager_Weighting_Picklist</name>
+                    <choiceReferences>PM_Weighting_Picklist</choiceReferences>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>PM_Weighting_Default_Value</elementReference>
+                    </defaultValue>
+                    <fieldText>Project Manager Influence</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <isRequired>false</isRequired>
+                </fields>
+                <fields>
+                    <name>PM_Weighted_Relationship_Score</name>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 11px;&quot;&gt;PM Weighted Rel Score: &lt;/strong&gt;&lt;strong style=&quot;color: rgb(255, 0, 0); font-size: 11px;&quot;&gt;{!PM_Weighted_Relationship_Score_Formula}&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>3</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>Update_Relationships_Section1_Column3</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Architect_Relationship</name>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value>
+                            <stringValue>AccountId</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Architect</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Opportunity</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>maxValues</name>
+                        <value>
+                            <numberValue>1.0</numberValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>recordId.Architect__c</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                </fields>
+                <fields>
+                    <name>Architect_Account_Relationship_Score_Total</name>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 11px; color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;Business Unit Rel&#39;ship: {!Architect_Weighted_Relationship_Display}&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <fields>
+                    <name>Architect_Opportunity_Relationship</name>
+                    <choiceReferences>Architect_Opportunity_Relationship_Picklist</choiceReferences>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Architect_Opp_Rel_Default_Value</elementReference>
+                    </defaultValue>
+                    <fieldText>Architect Opportunity Rel</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <isRequired>false</isRequired>
+                </fields>
+                <fields>
+                    <name>Architect_Weighting_Picklist</name>
+                    <choiceReferences>Architect_Weighting</choiceReferences>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Architect_Weighting_Default_Value</elementReference>
+                    </defaultValue>
+                    <fieldText>Architect Influence</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <isRequired>false</isRequired>
+                </fields>
+                <fields>
+                    <name>Architect_Weighted_Relationship_Score</name>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68); font-size: 11px;&quot;&gt;Architect Weighted Rel Score: &lt;/strong&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); color: rgb(255, 0, 0); font-size: 11px;&quot;&gt;{!Architect_Weighted_Relationship_Score_Formula}&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>3</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>Update_Relationships_Section1_Column4</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>QS_Relationship</name>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value>
+                            <stringValue>AccountId</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>QS</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Opportunity</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>maxValues</name>
+                        <value>
+                            <numberValue>1.0</numberValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>recordId.QS__c</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                </fields>
+                <fields>
+                    <name>QS_Account_Relationship_Score_Total</name>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 11px; color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;Business Unit Rel&#39;ship: {!QS_Weighted_Relationship_Display}&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <fields>
+                    <name>QS_Opportunity_Relationship</name>
+                    <choiceReferences>QS_Opportunity_Relationship_Picklist</choiceReferences>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>QS_Opp_Rel_Default_Value</elementReference>
+                    </defaultValue>
+                    <fieldText>QS Opportunity Rel</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <isRequired>false</isRequired>
+                </fields>
+                <fields>
+                    <name>QS_Weighting_Picklist</name>
+                    <choiceReferences>QS_Weighting</choiceReferences>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>QS_Weighting_Default_Value</elementReference>
+                    </defaultValue>
+                    <fieldText>QS Influence</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <isRequired>false</isRequired>
+                </fields>
+                <fields>
+                    <name>QS_Weighted_Relationship_Score</name>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68); font-size: 11px;&quot;&gt;QS Weighted Rel Score: &lt;/strong&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); color: rgb(255, 0, 0); font-size: 11px;&quot;&gt;{!QS_Weighted_Relationship_Score_Formula}&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>3</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
+        </fields>
+        <fields>
+            <name>Update_Relationships_Section2</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>Update_Relationships_Section2_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Influencer_Relationship</name>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value>
+                            <stringValue>AccountId</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Influencer</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Opportunity</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>maxValues</name>
+                        <value>
+                            <numberValue>1.0</numberValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>recordId.Influencer__c</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                </fields>
+                <fields>
+                    <name>Influencer_Account_Relationship_Score_Total</name>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 11px; background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;Business Unit Rel&#39;ship: {!Influencer_Weighted_Relationship_Display}&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <fields>
+                    <name>Influencer_Opportunity_Rel</name>
+                    <choiceReferences>Influencer_Opportunity_Relationship_Picklist</choiceReferences>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Influencer_Opp_Rel_Default_Value</elementReference>
+                    </defaultValue>
+                    <fieldText>Influencer Opportunity Rel</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <isRequired>false</isRequired>
+                </fields>
+                <fields>
+                    <name>Influencer_Weighting_Picklist</name>
+                    <choiceReferences>Influencer_Weighting</choiceReferences>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Influencer_Weighting_Default_Value</elementReference>
+                    </defaultValue>
+                    <fieldText>Influencer Influence</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <isRequired>false</isRequired>
+                </fields>
+                <fields>
+                    <name>Influencer_Weighted_Rel_Score</name>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255); font-size: 11px;&quot;&gt;Influencer Weighted Rel Score: &lt;/strong&gt;&lt;strong style=&quot;color: rgb(255, 0, 0); background-color: rgb(255, 255, 255); font-size: 11px;&quot;&gt;{!Influencer_Weighted_Relationship_Score_Formula}&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>3</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>Update_Relationships_Section2_Column2</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Influencer_2_Relationship</name>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value>
+                            <stringValue>AccountId</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Influencer 2</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Opportunity</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>maxValues</name>
+                        <value>
+                            <numberValue>1.0</numberValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>recordId.Influencer_2__c</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                </fields>
+                <fields>
+                    <name>Influencer_2_Account_Relationship_Score_Total</name>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 11px; color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;Business Unit Rel&#39;ship: {!Influencer_2_Weighted_Relationship_Display}&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <fields>
+                    <name>Influencer_2_Opportunity_Rel</name>
+                    <choiceReferences>Influencer_2_Opportunity_Relationship_Picklist</choiceReferences>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Influencer_2_Opp_Rel_Default_Value</elementReference>
+                    </defaultValue>
+                    <fieldText>Influencer 2 Opportunity Rel</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <isRequired>false</isRequired>
+                </fields>
+                <fields>
+                    <name>Influencer_2_Weighting_Picklist</name>
+                    <choiceReferences>Influencer_2_Weighting</choiceReferences>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Influencer_2_Weighting_Default_Value</elementReference>
+                    </defaultValue>
+                    <fieldText>Influencer 2 Influence</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <isRequired>false</isRequired>
+                </fields>
+                <fields>
+                    <name>Influencer_2_Weighted_Rel_Score</name>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255); font-size: 11px;&quot;&gt;Influencer 2 Weighted Rel Score: &lt;/strong&gt;&lt;strong style=&quot;color: rgb(255, 0, 0); background-color: rgb(255, 255, 255); font-size: 11px;&quot;&gt;{!Influencer_2_Weighted_Relationship_Formula}&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>3</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>Update_Relationships_Section2_Column3</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Influencer_3_Relationship</name>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value>
+                            <stringValue>AccountId</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Influencer 3</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Opportunity</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>maxValues</name>
+                        <value>
+                            <numberValue>1.0</numberValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>recordId.Influencer_3__c</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                </fields>
+                <fields>
+                    <name>Influencer_3_Account_Relationship_Score_Total</name>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 11px; color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;Business Unit Rel&#39;ship: {!Influencer_3_Relationship_Display}&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <fields>
+                    <name>Influencer_3_Opportunity_Rel</name>
+                    <choiceReferences>Influencer_3_Opportunity_Relationship_Picklist</choiceReferences>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Influencer_3_Opp_Rel_Default_Value</elementReference>
+                    </defaultValue>
+                    <fieldText>Influencer 3 Opportunity Rel</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <isRequired>false</isRequired>
+                </fields>
+                <fields>
+                    <name>Influencer_3_Weighting_Picklist</name>
+                    <choiceReferences>Influencer_3_Weighting</choiceReferences>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Influencer_3_Weighting_Default_Value</elementReference>
+                    </defaultValue>
+                    <fieldText>Influencer 3 Influence</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <isRequired>false</isRequired>
+                </fields>
+                <fields>
+                    <name>Influencer_3_Weighted_Rel_Score</name>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68); font-size: 11px;&quot;&gt;Influencer 3 Weighted Rel Score: &lt;/strong&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); color: rgb(255, 0, 0); font-size: 11px;&quot;&gt;{!Influencer_3_Weighted_Relationship_Formula}&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>3</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>Update_Relationships_Section2_Column4</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Influencer_4_Relationship</name>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value>
+                            <stringValue>AccountId</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Influencer 4</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Opportunity</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>maxValues</name>
+                        <value>
+                            <numberValue>1.0</numberValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>recordId.Influencer_4__c</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                </fields>
+                <fields>
+                    <name>Influencer_4_Account_Relationship_Score_Total</name>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 11px; color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;Business Unit Rel&#39;ship: {!Influencer_4_Weighted_Relationship_Display}&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <fields>
+                    <name>Influencer_4_Opportunity_Rel</name>
+                    <choiceReferences>Influencer_4_Opportunity_Relationship_Picklist</choiceReferences>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Influencer_4_Opp_Rel_Default_Value</elementReference>
+                    </defaultValue>
+                    <fieldText>Influencer 4 Opportunity Rel</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <isRequired>false</isRequired>
+                </fields>
+                <fields>
+                    <name>Influencer_4_Weighting_Picklist</name>
+                    <choiceReferences>Influencer_4_Weighting</choiceReferences>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Influencer_4_Weighting_Default_Value</elementReference>
+                    </defaultValue>
+                    <fieldText>Influencer 4 Influence</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <isRequired>false</isRequired>
+                </fields>
+                <fields>
+                    <name>Influencer_4_Weighted_Rel_Score</name>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68); font-size: 11px;&quot;&gt;Influencer 4 Weighted Rel Score: &lt;/strong&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); color: rgb(255, 0, 0); font-size: 11px;&quot;&gt;{!Influencer_4_Weighted_Relationship_Formula}&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>3</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
+        </fields>
+        <fields>
+            <name>Score_Justification</name>
+            <defaultValue>
+                <stringValue>{!recordId.Score_Justification__c}</stringValue>
+            </defaultValue>
+            <fieldText>Score Justification</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <nextOrFinishButtonLabel>Update</nextOrFinishButtonLabel>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Relationships</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>recordId</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Opportunity</objectType>
+    </variables>
+</Flow>

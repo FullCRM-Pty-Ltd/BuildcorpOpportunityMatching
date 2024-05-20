@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Team_Experience__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>What is Buildcorp&#39;s Team experience for this Opportunity?</inlineHelpText>
+    <label>Team Experience</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Industry Leading</fullName>
+                <default>false</default>
+                <label>Industry Leading (+5)</label>
+            </value>
+            <value>
+                <fullName>Multiple Projects</fullName>
+                <default>false</default>
+                <label>Multiple Projects (+2)</label>
+            </value>
+            <value>
+                <fullName>Limited</fullName>
+                <default>false</default>
+                <label>Limited (+1)</label>
+            </value>
+            <value>
+                <fullName>Historic</fullName>
+                <default>false</default>
+                <label>Historic (0)</label>
+            </value>
+            <value>
+                <fullName>No experience</fullName>
+                <default>false</default>
+                <label>No experience (-5)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

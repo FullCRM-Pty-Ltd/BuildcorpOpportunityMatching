@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ECI_update_services</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>OPPORTUNITY.AMOUNT</columns>
+    <columns>Services__c</columns>
+    <columns>BIM_project__c</columns>
+    <columns>Live_Environment__c</columns>
+    <columns>Sustainability_Target__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Buildcorp_Business_Unit__c</field>
+        <operation>equals</operation>
+        <value>Interiors NSW</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Opportunity.ECI_Negotiation</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>notEqual</operation>
+        <value>Closed Lost</value>
+    </filters>
+    <label>InteriorsNSW ECI update services view</label>
+</ListView>

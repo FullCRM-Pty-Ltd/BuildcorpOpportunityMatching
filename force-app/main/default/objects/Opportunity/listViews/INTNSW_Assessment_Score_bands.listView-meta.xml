@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>INTNSW_Assessment_Score_bands</fullName>
+    <columns>OPPORTUNITY.RECORDTYPE</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>OPPORTUNITY.AMOUNT</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>Business_Unit_Score__c</columns>
+    <columns>Business_Unit_Assessment__c</columns>
+    <columns>Relationship__c</columns>
+    <columns>Contract_Type__c</columns>
+    <columns>Sector__c</columns>
+    <columns>Private_vs_Public__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Buildcorp_Business_Unit__c</field>
+        <operation>equals</operation>
+        <value>Interiors NSW</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.CLOSED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>notEqual</operation>
+        <value>Under Construction</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>notEqual</operation>
+        <value>Opportunity.Planned_Work</value>
+    </filters>
+    <label>INTNSW Assessment Score bands</label>
+</ListView>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Full team available</fullName>
+        <default>false</default>
+        <label>Full team available (+5)</label>
+    </customValue>
+    <customValue>
+        <fullName>Key members available</fullName>
+        <default>false</default>
+        <label>Key members available (+2)</label>
+    </customValue>
+    <customValue>
+        <fullName>Increased hours required</fullName>
+        <default>false</default>
+        <label>Increased hours required (+1)</label>
+    </customValue>
+    <customValue>
+        <fullName>Limited availability</fullName>
+        <default>false</default>
+        <label>Limited availability (0)</label>
+    </customValue>
+    <customValue>
+        <fullName>Conflicting priorities</fullName>
+        <default>false</default>
+        <label>Conflicting priorities (-5)</label>
+    </customValue>
+    <description>Delivery / Project Resources</description>
+    <masterLabel>Delivery / Project Resources</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

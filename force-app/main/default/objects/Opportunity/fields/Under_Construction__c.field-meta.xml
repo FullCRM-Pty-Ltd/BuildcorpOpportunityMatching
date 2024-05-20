@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Under_Construction__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(NOT(ISBLANK(Under_Construction_Date__c)), TRUE, FALSE)</formula>
+    <label>Under Construction</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fit_out_cost_per_m2__c</fullName>
+    <description>Fit-out cost per square metre for future reference</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Allocate the most appropriate band</inlineHelpText>
+    <label>Fit-out Cost Per m2</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>&lt;$1,000</fullName>
+                <default>false</default>
+                <label>&lt;$1,000</label>
+            </value>
+            <value>
+                <fullName>$1,000 - $1,500</fullName>
+                <default>false</default>
+                <label>$1,000 - $1,500</label>
+            </value>
+            <value>
+                <fullName>$1,500 - $2,000</fullName>
+                <default>false</default>
+                <label>$1,500 - $2,000</label>
+            </value>
+            <value>
+                <fullName>$2,000 - $2,500</fullName>
+                <default>false</default>
+                <label>$2,000 - $2,500</label>
+            </value>
+            <value>
+                <fullName>$2,500 - $3,000</fullName>
+                <default>false</default>
+                <label>$2,500 - $3,000</label>
+            </value>
+            <value>
+                <fullName>&gt;$3,000</fullName>
+                <default>false</default>
+                <label>&gt;$3,000</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

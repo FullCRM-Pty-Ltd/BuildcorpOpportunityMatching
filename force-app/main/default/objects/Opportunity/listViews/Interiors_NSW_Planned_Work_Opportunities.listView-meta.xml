@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Interiors_NSW_Planned_Work_Opportunities</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>Buildcorp_Business_Unit__c</columns>
+    <columns>OPPORTUNITY.AMOUNT</columns>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>Services__c</columns>
+    <columns>Worst_Case__c</columns>
+    <columns>Annual_Forecast__c</columns>
+    <columns>Best_Case__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Opportunity.Planned_Work</value>
+    </filters>
+    <filters>
+        <field>Buildcorp_Business_Unit__c</field>
+        <operation>equals</operation>
+        <value>Interiors NSW</value>
+    </filters>
+    <label>Interiors NSW Planned Work Opportunities</label>
+</ListView>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tender_Estimating_Resources__c</fullName>
+    <description>Tender / Estimating Resources of front end and delivery team</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Tender / Estimating Resources of front end and delivery team</inlineHelpText>
+    <label>Tender / Estimating Resources</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Tender_Estimating_Resources</valueSetName>
+    </valueSet>
+</CustomField>

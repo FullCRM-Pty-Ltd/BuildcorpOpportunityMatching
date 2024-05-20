@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Assessment_Indicator_Formula__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(Assessment_Indicator__c =&quot;Weak&quot;, &quot;01 Weak&quot;,
+IF(Assessment_Indicator__c = &quot;Develop&quot;, &quot;02 Develop&quot;,
+IF(Assessment_Indicator__c = &quot;Strong&quot;, &quot;03 Strong&quot;, &quot;&quot;)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Assessment Indicator</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Strategy_Document</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Strategy Document</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/apex/APXTConga4__Conga_Composer
+?sessionId={!API.Session_ID}
+&amp;serverUrl={!API.Partner_Server_URL_370}
+&amp;id={!Opportunity.Id}
+&amp;Templateid=a0s6F00000fbo7HQAQ
+&amp;DS7=1
+
+&amp;Queryid=
+[RELPM]a0k6F00001fdJsz?pv0={!Opportunity.Project_ManagerId__c},
+[RELClient]a0k6F00001fdJsz?pv0={!Opportunity.ClientId__c},
+[RELArchitect]a0k6F00001fdJsz?pv0={!Opportunity.ArchitectId__c},
+[RELQS]a0k6F00001fdJsz?pv0={!Opportunity.QSId__c},
+[RELInf1]a0k6F00001fdJsz?pv0={!Opportunity.InfluencerId__c},
+[RELInf2]a0k6F00001fdJsz?pv0={!Opportunity.Influencer_2Id__c},
+[RELInf3]a0k6F00001fdJsz?pv0={!Opportunity.Influencer_3Id__c},
+[RELInf4]a0k6F00001fdJsz?pv0={!Opportunity.Influencer_4Id__c},
+
+[RELCmp2]a0k6F00001fdKRE?pv0={!Opportunity.Competitor_2Id__c},
+[RELCmp3]a0k6F00001fdKRE?pv0={!Opportunity.Competitor_3Id__c},
+[RELCmp4]a0k6F00001fdKRE?pv0={!Opportunity.Competitor_4Id__c},
+[RELCmp5]a0k6F00001fdKRE?pv0={!Opportunity.Competitor_5Id__c},
+[RELCmp6]a0k6F00001fdKRE?pv0={!Opportunity.Competitor_6Id__c},
+
+[ContactRoleDetails]a0k6F00001ri2ZT?pv0={!Opportunity.Id}</url>
+</WebLink>

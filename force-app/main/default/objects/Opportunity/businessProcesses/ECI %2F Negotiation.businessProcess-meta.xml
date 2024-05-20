@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ECI %2F Negotiation</fullName>
+    <isActive>true</isActive>
+    <values>
+        <fullName>Budget Advice</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Closed Lost</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Closed Withdrawn</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Complete</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Confirmed</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>ECI Stage</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>EOI</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Post Tender</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Potential</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Preferred</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Speculative</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Tender</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Under Construction</fullName>
+        <default>false</default>
+    </values>
+</BusinessProcess>

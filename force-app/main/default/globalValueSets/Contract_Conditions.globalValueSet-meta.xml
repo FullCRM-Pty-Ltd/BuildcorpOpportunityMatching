@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Great Opportunity</fullName>
+        <default>false</default>
+        <label>Great Opportunity (+5)</label>
+    </customValue>
+    <customValue>
+        <fullName>Reasonable upside</fullName>
+        <default>false</default>
+        <label>Reasonable upside (+2)</label>
+    </customValue>
+    <customValue>
+        <fullName>Acceptable</fullName>
+        <default>false</default>
+        <label>Acceptable (+1)</label>
+    </customValue>
+    <customValue>
+        <fullName>Minor adjustment required</fullName>
+        <default>false</default>
+        <label>Minor adjustment required (0)</label>
+    </customValue>
+    <customValue>
+        <fullName>Unreasonable</fullName>
+        <default>false</default>
+        <label>Unreasonable (-5)</label>
+    </customValue>
+    <masterLabel>Contract Conditions</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>
